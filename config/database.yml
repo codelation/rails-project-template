@@ -1,14 +1,14 @@
 development:
   adapter: postgresql
-  database: askhg_magic_blog_development
+  database: rails_project_start_development
   host: localhost
 
 test:
   adapter: postgresql
-  database: askhg_magic_blog_test
+  database: rails_project_start_test
   host: localhost
 
 production:
   adapter: postgresql
-  database: askhg_magic_blog_production
+  database: rails_project_start_production
   host: localhost
