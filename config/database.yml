@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  database: askhg_magic_blog_development
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: askhg_magic_blog_test
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: askhg_magic_blog_production
+  host: localhost

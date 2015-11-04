@@ -1,0 +1,2 @@
+livereload: LIVERELOAD=true bundle exec guard start -i
+web: rails s Puma

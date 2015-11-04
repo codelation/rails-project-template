@@ -1,0 +1,11 @@
+@import "normalize";
+@import "bourbon";
+
+// Max width neats to be set here for neat's outer-container
+$max-width: 1080px;
+@import "neat";
+
+@import "functions/**/*";
+@import "application/variables";
+@import "mixins/**/*";
+@import "application/**/*";

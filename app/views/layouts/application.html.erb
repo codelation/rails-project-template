@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title(title_params: @title_params) %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "vendor", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= yield :head %>
+</head>
+
+<body class="<%= body_class %>">
+  <%= render partial: "layouts/application/header" unless @hide_header %>
+  <%= render partial: "layouts/shared/flash_messages" unless @hide_header %>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <%= render partial: "layouts/application/footer" unless @hide_footer %>
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= yield :scripts %>
+  <%= render partial: "layouts/shared/analytics" %>
+</body>
+
+</html>

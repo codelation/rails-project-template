@@ -1,0 +1,15 @@
+// @see https://www.google.com/design/spec/style/color.html
+$primary-color: $grey;
+$accent-color: $blue;
+
+$base-background-color: color($primary-color, 50);
+$base-font-color:       color($grey, 900);
+$base-font-family:      sans-serif;
+$base-font-size:        16px;
+$base-line-height:      1.6875;
+$navigation-width:      180px;
+$transition-timing:     cubic-bezier(0.25, 0.8, 0.25, 1);
+
+// Breakpoints
+$tablet: new-breakpoint(max-width 1024px 12);
+$mobile: new-breakpoint(max-width 480px 6);

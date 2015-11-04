@@ -1,0 +1,28 @@
+<h1>Reset Password</h1>
+
+<% unless resource.errors.count == 0 %>
+  <div class="resource-errors">
+    <h2><%= pluralize(resource.errors.count, "error") %> prohibited this form from being submitted:</h2>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div>
+    <%= f.label :email %><br>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.submit "Send Reset Instructions", class: "button" %>
+  </div>
+<% end %>
+
+<div class="devise-links">
+  Remember your password?
+  <%= link_to "Sign In", new_session_path(resource_name) %>
+</div>

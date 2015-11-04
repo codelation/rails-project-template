@@ -1,0 +1,33 @@
+<h1>Sign Up</h1>
+
+<% unless resource.errors.count == 0 %>
+  <div class="resource-errors">
+    <h2><%= pluralize(resource.errors.count, "error") %> prohibited this form from being submitted:</h2>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div>
+    <%= f.label :email, "Email Address", class: "required" %><br>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :password, class: "required" %><br>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div>
+    <%= f.submit "Sign Up" %>
+  </div>
+<% end %>
+
+<div class="devise-links">
+  Already have an account?
+  <%= link_to "Sign In", new_session_path(resource_name) %>
+</div>
