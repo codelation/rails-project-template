@@ -17,7 +17,7 @@
 
 if ENV["LIVERELOAD"]
   guard "livereload" do
-    watch(%r{app/admins/.+\.rb})
+    watch(%r{app/admin/.+\.rb})
     watch(%r{app/views/.+\.(erb|haml|slim)$})
     watch(%r{app/helpers/.+\.rb})
     watch(%r{public/.+\.(css|js|html)})

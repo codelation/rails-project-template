@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 ruby "2.2.3"
-gem "rails", "4.2.4"
+gem "rails", "4.2.5"
 
 gem "activeadmin", github: "activeadmin"
 gem "activeadmin_pro", git: "git@github.com:codelation/activeadmin_pro.git"
@@ -18,15 +18,14 @@ gem "local_time"
 gem "mandrill_mailer"
 gem "paperclip"
 gem "pg"
-gem "puma"
 gem "sass-rails"
 gem "title"
 gem "turbolinks"
 gem "uglifier"
 
 group :development do
-  gem "guard-livereload", require: false
   gem "foreman"
+  gem "guard-livereload", require: false
   gem "rack-livereload"
   gem "spring"
   gem "spring-commands-rspec"
@@ -40,6 +39,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "http_logger"
   gem "pry-rails"
+  gem "puma"
   gem "quiet_assets"
   gem "rspec-rails"
 end
