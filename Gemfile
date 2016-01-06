@@ -54,6 +54,7 @@ group :test do
 end
 
 group :staging, :production do
+  gem "dalli"
   gem "passenger"
   gem "rack-canonical-host"
   gem "rack-timeout"
