@@ -12,7 +12,7 @@
 
 <body class="<%= body_class %>">
   <%= render partial: "layouts/application/header" unless @hide_header %>
-  <%= render partial: "layouts/shared/flash_messages" unless @hide_header %>
+  <%= render partial: "layouts/shared/flash_messages" %>
 
   <main>
     <%= yield %>

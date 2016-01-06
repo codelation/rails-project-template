@@ -4,7 +4,7 @@ ruby "2.2.3"
 gem "rails", "4.2.5"
 
 gem "activeadmin", github: "activeadmin"
-gem "activeadmin_pro", git: "git@github.com:codelation/activeadmin_pro.git"
+gem "activeadmin_pro", github: "codelation/activeadmin_pro"
 # gem "activeadmin_pro", path: "../activeadmin_pro"
 gem "autoprefixer-rails"
 gem "awesome_print"
