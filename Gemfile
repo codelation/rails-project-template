@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-ruby "2.2.3"
+ruby "2.3.0"
 gem "rails", "4.2.5"
 
 gem "activeadmin", github: "activeadmin"
@@ -9,6 +9,7 @@ gem "activeadmin_pro", github: "codelation/activeadmin_pro"
 gem "autoprefixer-rails"
 gem "awesome_print"
 gem "coffee-rails"
+gem "delayed_job_active_record"
 gem "devise"
 gem "fog"
 gem "i18n-tasks"
