@@ -1,2 +1,22 @@
 body.pages.home {
+  .columns {
+    @include has-columns(3, $gutter: 1em);
+    background-color: $blue;
+
+    > div {
+      background-color: $pink;
+    }
+  }
+
+  .widgets {
+    @include has-columns(3, $margin: 1em);
+    background-color: $red;
+
+    > div {
+      background-color: $yellow;
+      border: 5px solid $green;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      padding: 16px;
+    }
+  }
 }

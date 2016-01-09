@@ -1,9 +1,0 @@
-.outer-container {
-  @include outer-container;
-}
-
-section {
-  @include media($tablet) {
-    padding: 0 20px;
-  }
-}

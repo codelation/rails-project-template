@@ -1,9 +1,9 @@
 @import "normalize";
 @import "bourbon";
 
-// Max width neats to be set here for neat's outer-container
+// Max width neats to be set here for codelation's has-columns mixin
 $max-width: 1080px;
-@import "neat";
+@import "codelation";
 
 @import "functions/**/*";
 @import "application/variables";
