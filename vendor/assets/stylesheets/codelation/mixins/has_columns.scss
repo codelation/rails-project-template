@@ -1,6 +1,5 @@
 // Sets up a element and its child elements with the flexbox properties needed
-// to have the given number of columns with optional gutters and/or margins.
-$max-width: none !default;
+// to have the given number of columns with optional gutters or margins.
 $mobile-breakpoint: 500px !default;
 
 @mixin has-columns($columns, $gutter: 0, $margin: 0) {
@@ -11,16 +10,17 @@ $mobile-breakpoint: 500px !default;
   @include flex-wrap(wrap);
   @include justify-content(space-around);
   margin: 0 auto;
-  max-width: $max-width;
+
+  // Gutter and margin should be used for two different purposes.
+  @if $margin > 0 and $gutter > 0 {
+    @error "$gutter and $margin cannot be used together. Given: $gutter: #{$gutter} $margin: #{$margin}";
+  }
 
   @if $margin > 0 {
-    @if $gutter > 0 {
-      @error "$gutter and $margin cannot be used together. Given: $gutter: #{$gutter} $margin: #{$margin}";
-    }
     padding: $margin 0 0 $margin;
   }
 
-  > * {
+  > div {
     @include flex(1 1 auto);
     width: (1 / $columns) * 85%;
 
@@ -42,7 +42,7 @@ $mobile-breakpoint: 500px !default;
   }
 
   @media (max-width: $mobile-breakpoint) {
-    > * {
+    > div {
       width: 100%;
 
       @if $gutter > 0 {

@@ -1,22 +1,45 @@
+$number: 500;
+
 body.pages.home {
   .columns {
     @include has-columns(3, $gutter: 1em);
-    background-color: $blue;
+    background-color: color($blue, $number);
+    color: text-color(color($blue, $number));
 
     > div {
-      background-color: $pink;
+      background-color: color($green, $number);
+      color: text-color(color($green, $number));
+
+      &:first-child:before {
+        display: block;
+        font-size: 100px;
+      }
     }
   }
 
   .widgets {
     @include has-columns(3, $margin: 1em);
-    background-color: $red;
+    background-color: color($red, $number);
+    color: text-color(color($red, $number));
 
     > div {
-      background-color: $yellow;
-      border: 5px solid $green;
+      background-color: color($orange, $number);
+      border: 5px solid color($green, $number);
       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      color: text-color(color($orange, $number));
       padding: 16px;
+    }
+  }
+
+  .center-children {
+    @include center-children;
+    background-color: $yellow;
+    height: 400px;
+    margin: 2em auto;
+    width: 700px;
+
+    > * {
+      color: text-color($yellow);
     }
   }
 }

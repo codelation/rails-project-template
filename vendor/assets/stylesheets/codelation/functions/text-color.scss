@@ -29,6 +29,12 @@
     $text-color: $black;
   } @else if $color == $yellow {
     $text-color: $black;
+  } @else {
+    @if lightness($color) < 50% {
+      $text-color: $white;
+    } @else {
+      $text-color: $black;
+    }
   }
 
   @return $text-color;
