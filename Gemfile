@@ -18,7 +18,6 @@ gem "jquery-rails"
 gem "local_time"
 gem "mandrill_mailer"
 gem "paperclip"
-gem "pg"
 gem "sass-rails"
 gem "title"
 gem "turbolinks"
@@ -27,6 +26,7 @@ gem "uglifier"
 group :development do
   gem "foreman"
   gem "guard-livereload", require: false
+  gem "pg"
   gem "rack-livereload"
   gem "spring"
   gem "spring-commands-rspec"
@@ -57,6 +57,7 @@ end
 group :staging, :production do
   gem "dalli"
   gem "passenger"
+  gem "pg_jruby", platform: :jruby
   gem "rack-canonical-host"
   gem "rack-timeout"
   gem "rails_12factor"
