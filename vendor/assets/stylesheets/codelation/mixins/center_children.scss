@@ -1,4 +1,4 @@
-// Centers a single child elements horizontally and vertically without needing
+// Centers child elements horizontally and vertically without needing
 // to set the height and width of the child elements using flexbox.
 @mixin center-children {
   @include align-content(center);
