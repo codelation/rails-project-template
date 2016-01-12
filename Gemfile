@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-ruby "2.3.4", engine: "rbx", engine_version: "3.5"
+ruby "2.0.0", engine: "rbx", engine_version: "3.0"
 gem "rails", "4.2.5"
 
 gem "activeadmin", github: "activeadmin"
