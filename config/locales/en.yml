@@ -20,6 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    attributes:
+      widget:
+        thingy: Thingamajig
+    models:
+      widget:
+        one: Widget
+        other: Widgets
   # Page titles based on controller/action
   # @see https://github.com/calebthompson/title
   titles:
