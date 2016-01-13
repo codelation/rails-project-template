@@ -1,14 +1,14 @@
 development:
   adapter: postgresql
-  database: rails_project_start_development
+  database: rails_project_development
   host: localhost
 
 test:
   adapter: postgresql
-  database: rails_project_start_test
+  database: rails_project_test
   host: localhost
 
 production:
   adapter: postgresql
-  database: rails_project_start_production
+  database: rails_project_production
   host: localhost
