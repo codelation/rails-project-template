@@ -523,7 +523,6 @@ DEPENDENCIES
   paperclip
   passenger
   pg
-  pg_jruby
   pry-rails
   puma
   quiet_assets
