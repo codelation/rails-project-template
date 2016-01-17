@@ -1,12 +1,4 @@
-// @see https://www.google.com/design/spec/style/color.html
-$primary-color: $grey;
-$accent-color: $blue;
-
-$base-background-color: color($primary-color, 50);
-$base-font-color:       color($grey, 900);
-$base-font-family:      sans-serif;
-$base-font-size:        16px;
-$base-line-height:      1.6875;
-$mobile-breakpoint:     500px;
-$max-width:             1080px;
-$transition-timing:     cubic-bezier(0.25, 0.8, 0.25, 1);
+// Global variables
+$accent-color:  $blue;
+$primary-color: $blue-grey;
+$transition-timing: cubic-bezier(0.25, 0.8, 0.25, 1);

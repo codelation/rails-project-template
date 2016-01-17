@@ -1,32 +1,79 @@
-$number: 500;
+// This file is meant to be replace completely after reading through the documentation.
+$code-background-color: color($grey, 100);
+$code-border-color: color($grey, 200);
+$code-color: color($grey, 800);
+$code-comment-color: $grey;
+$em-background-color: color($yellow, 100);
 
 body.pages.home {
-  .columns {
-    @include has-columns(3, $gutter: 1em);
-    background-color: color($blue, $number);
-    color: text-color(color($blue, $number));
-
-    > div {
-      background-color: color($green, $number);
-      color: text-color(color($green, $number));
-
-      &:first-child:before {
-        display: block;
-        font-size: 100px;
-      }
-    }
+  // Base styles for home page elements
+  code {
+    background-color: $code-background-color;
+    border: 1px solid $code-border-color;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 0.9em;
+    padding: 0 5px 1px;
   }
 
-  .widgets {
-    @include has-columns(3, $margin: 1em);
-    background-color: color($red, $number);
-    color: text-color(color($red, $number));
+  em {
+    background-color: $em-background-color;
+    display: inline-block;
+    font-style: normal;
+    padding: 0 3px 1px;
+  }
+
+  h1 {
+    margin-top: 0;
+    padding-top: 1em;
+  }
+
+  hr {
+    background-color: color($grey, 200);
+    border: 0;
+    height: 1px;
+    margin-top: 2em;
+  }
+
+  main {
+    padding: 0 2em 2em;
+  }
+
+  pre {
+    background-color: $code-background-color;
+    border: 1px solid $code-border-color;
+    border-radius: 2px;
+    color: $code-color;
+    font-size: 0.8em;
+    padding: 3px 8px 5px;
+    width: 100%;
+  }
+
+  section {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  .back-to-top {
+    text-align: center;
+  }
+
+  .code-comment {
+    color: $code-comment-color;
+  }
+
+  .columns {
+    @include has-columns(3, 1em);
+  }
+
+  .cards {
+    @include has-cards(3, 1em);
+    background-color: color($grey, 200);
 
     > div {
-      background-color: color($orange, $number);
-      border: 5px solid color($green, $number);
-      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-      color: text-color(color($orange, $number));
+      background-color: $white;
+      border-radius: 2px;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
       padding: 16px;
     }
   }
@@ -35,10 +82,10 @@ body.pages.home {
     @include center-children;
     background-color: $yellow;
     height: 500px;
-    margin: 2em;
 
     > * {
       color: text-color($yellow);
+      margin: 1em;
     }
   }
 }

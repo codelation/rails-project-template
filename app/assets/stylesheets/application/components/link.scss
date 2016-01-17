@@ -1,6 +1,6 @@
-$link-color: $accent-color;
-$link-color-active: darken($accent-color, 10%);
-$link-color-hover: lighten($accent-color, 5%);
+$link-color:        $accent-color;
+$link-color-active: color($accent-color, 800);
+$link-color-hover:  color($accent-color, 700);
 
 a {
   color: $link-color;
