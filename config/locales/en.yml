@@ -33,7 +33,4 @@ en:
   titles:
     application: Rails Project
     pages:
-      about_us:
-        root: About Us
-        team: Team
-      home: Rails Project Home
+      index: Rails Project Home

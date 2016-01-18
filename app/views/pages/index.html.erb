@@ -123,7 +123,7 @@
   <p>
     Files within subfolders will not be served by the <code>PagesController</code>. They will
     be served by a generated controller matching the name of the folder. In the case of our
-    &quot;Features > Overview&quot; page, the controller would be the <code>FeaturesController</code>.
+    &quot;Features > Overview&quot; page, the controller would be the <code>Pages::FeaturesController</code>.
   </p>
 </section>
 
@@ -159,7 +159,9 @@ en:
     pages:
       about_us: About Us
       features:
+        index: Features
         overview: Features > Overview
+      index: Home Page
     posts:
       index: Codelation Blog
 </pre>
