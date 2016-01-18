@@ -27,9 +27,9 @@ GIT
       turbolinks (~> 2.5)
 
 PATH
-  remote: ../codelation_assets
+  remote: ../codelation_pages
   specs:
-    codelation_assets (0.0.1)
+    codelation_pages (0.0.1)
       rails (~> 4.0)
 
 GEM
@@ -93,6 +93,8 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    codelation_assets (0.0.1)
+      rails (~> 4.0)
     coderay (1.1.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -509,7 +511,8 @@ DEPENDENCIES
   awesome_print
   bundler-audit
   byebug
-  codelation_assets!
+  codelation_assets
+  codelation_pages!
   coffee-rails
   dalli
   database_cleaner

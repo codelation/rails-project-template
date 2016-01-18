@@ -1,5 +1,3 @@
-require "extensions/action_dispatch/routing/mapper"
-
 RailsProject::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :admin_users, :users

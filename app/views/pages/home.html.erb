@@ -113,10 +113,10 @@
   <h5>Subfolders</h5>
 
   <p>
-    <em>You can also create pages within subfolders</em>, so if wanted to create an
+    <em>You can also create pages within subfolders</em>, so if wanted to create a
     &quot;Features > Overview&quot; page that lives at
     <a href="http://example.com/features/overview" target="_blank">http://example.com/features/overview</a>,
-    I woulc create the view file: <code>app/views/pages/features/overview.html.erb</code>.
+    I would create the view file: <code>app/views/pages/features/overview.html.erb</code>.
     The link helper will be available as <code>features_overview_path</code>.
   </p>
 
@@ -124,6 +124,14 @@
     Files within subfolders will not be served by the <code>PagesController</code>. They will
     be served by a generated controller matching the name of the folder. In the case of our
     &quot;Features > Overview&quot; page, the controller would be the <code>FeaturesController</code>.
+  </p>
+</section>
+
+<section class="important">
+  <h4>IMPORTANT</h4>
+
+  <p>
+    You will need to restart your server after adding new page files so the routes can be automatically registered.
   </p>
 </section>
 
@@ -375,8 +383,8 @@ app/assets/stylesheets/backend/layout/header.scss
   <h2 id="codelation-assets">Awesome Assets</h2>
 
   <p>
-    Let&#39;s go over why this section is labeled &quot;Awesome Assets&quot;. In Codelation
-    Rails projects, everything has a place. CSS styles and JavaScript should apply to a
+    Let&#39;s go over why this section is labeled &quot;Awesome Assets.&quot; In Codelation
+    Rails projects, everything has a place. CSS and JavaScript should apply to a
     <em>single page by default</em> and should only be <em>global on purpose.</em>
     This section will go over how we accomplish this.
   </p>
@@ -454,10 +462,10 @@ app/assets/stylesheets/backend/layout/header.scss
       Bacon ipsum dolor amet pancetta capicola porchetta pig, ribeye t-bone pork belly. Boudin kevin pig andouille. Flank boudin ribeye chuck venison picanha meatball hamburger kielbasa ball tip beef beef ribs turducken fatback. Corned beef swine meatloaf, porchetta shankle strip steak t-bone fatback chicken ribeye landjaeger biltong ground round. Spare ribs pig leberkas ham, turducken kielbasa bacon frankfurter jowl chicken.
     </div>
     <div>
-      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter. Ham meatloaf corned beef, shank pastrami tail venison kevin. Turducken ground round pork chop, pig meatloaf drumstick kevin doner t-bone beef short loin cow pork loin venison alcatra. Bresaola shankle pork meatloaf flank, shoulder biltong alcatra jowl pastrami pork chop pig.
+      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter. Ham meatloaf corned beef, shank pastrami tail venison kevin. Turducken ground round pork chop, pig meatloaf drumstick kevin doner t-bone beef short loin cow pork loin venison alcatra.
     </div>
     <div>
-      Short loin bacon leberkas, corned beef porchetta shoulder bresaola landjaeger. Fatback brisket tail rump tenderloin hamburger meatball ham shoulder strip steak spare ribs short ribs alcatra salami short loin. Andouille ham ball tip shank, porchetta ham hock sirloin kielbasa tongue doner. Prosciutto beef ribs sausage, andouille shankle shoulder tongue t-bone swine chuck pork belly kevin doner pork spare ribs. Ribeye spare ribs frankfurter pastrami tri-tip strip steak sirloin ground round. Capicola andouille shank salami. Alcatra pork loin tri-tip capicola, doner ball tip ham hock.
+      Short loin bacon leberkas, corned beef porchetta shoulder bresaola landjaeger. Fatback brisket tail rump tenderloin hamburger meatball ham shoulder strip steak spare ribs short ribs alcatra salami short loin. Andouille ham ball tip shank, porchetta ham hock sirloin kielbasa tongue doner. Prosciutto beef ribs sausage, andouille shankle shoulder tongue t-bone swine chuck pork belly kevin doner pork spare ribs. Ribeye spare ribs frankfurter pastrami tri-tip strip steak sirloin ground round.
     </div>
   </div>
 </section>
@@ -467,16 +475,16 @@ app/assets/stylesheets/backend/layout/header.scss
 
   <div class="cards">
     <div>
-      Bacon ipsum dolor amet pancetta capicola porchetta pig, ribeye t-bone pork belly. Boudin kevin pig andouille. Flank boudin ribeye chuck venison picanha meatball hamburger kielbasa ball tip beef beef ribs turducken fatback. Corned beef swine meatloaf, porchetta shankle strip steak t-bone fatback chicken ribeye landjaeger biltong ground round. Spare ribs pig leberkas ham, turducken kielbasa bacon frankfurter jowl chicken.
+      Bacon ipsum dolor amet pancetta capicola porchetta pig, ribeye t-bone pork belly. Boudin kevin pig andouille.
     </div>
     <div>
-      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter. Ham meatloaf corned beef, shank pastrami tail venison kevin. Turducken ground round pork chop, pig meatloaf drumstick kevin doner t-bone beef short loin cow pork loin venison alcatra. Bresaola shankle pork meatloaf flank, shoulder biltong alcatra jowl pastrami pork chop pig.
+      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye.
     </div>
     <div>
-      Short loin bacon leberkas, corned beef porchetta shoulder bresaola landjaeger. Fatback brisket tail rump tenderloin hamburger meatball ham shoulder strip steak spare ribs short ribs alcatra salami short loin. Andouille ham ball tip shank, porchetta ham hock sirloin kielbasa tongue doner. Prosciutto beef ribs sausage, andouille shankle shoulder tongue t-bone swine chuck pork belly kevin doner pork spare ribs. Ribeye spare ribs frankfurter pastrami tri-tip strip steak sirloin ground round. Capicola andouille shank salami. Alcatra pork loin tri-tip capicola, doner ball tip ham hock.
+      Short loin bacon leberkas, corned beef porchetta shoulder bresaola landjaeger. Fatback brisket tail rump tenderloin hamburger meatball ham shoulder strip steak spare ribs short ribs alcatra salami short loin. Andouille ham ball tip shank, porchetta ham hock sirloin kielbasa tongue doner.
     </div>
     <div>
-      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter. Ham meatloaf corned beef, shank pastrami tail venison kevin. Turducken ground round pork chop, pig meatloaf drumstick kevin doner t-bone beef short loin cow pork loin venison alcatra. Bresaola shankle pork meatloaf flank, shoulder biltong alcatra jowl pastrami pork chop pig.
+      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter.
     </div>
   </div>
 </section>

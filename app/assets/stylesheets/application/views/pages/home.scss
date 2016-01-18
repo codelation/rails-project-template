@@ -4,6 +4,8 @@ $code-border-color: color($grey, 200);
 $code-color: color($grey, 800);
 $code-comment-color: $grey;
 $em-background-color: color($yellow, 100);
+$important-background-color: $deep-orange;
+$max-width: 1000px;
 
 body.pages.home {
   // Base styles for home page elements
@@ -36,7 +38,7 @@ body.pages.home {
   }
 
   main {
-    padding: 0 2em 2em;
+    padding: 0 0 2em;
   }
 
   pre {
@@ -51,7 +53,22 @@ body.pages.home {
 
   section {
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: $max-width;
+
+    &.important {
+      background-color: $important-background-color;
+      color: $white;
+      font-weight: bold;
+      max-width: none;
+      padding-bottom: 1em;
+      padding-top: 0.5em;
+
+      > * {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1000px;
+      }
+    }
   }
 
   .back-to-top {
@@ -64,11 +81,12 @@ body.pages.home {
 
   .columns {
     @include has-columns(3, 1em);
+    background-color: color($blue-grey, 50);
   }
 
   .cards {
     @include has-cards(3, 1em);
-    background-color: color($grey, 200);
+    background-color: color($blue-grey, 50);
 
     > div {
       background-color: $white;
@@ -86,6 +104,13 @@ body.pages.home {
     > * {
       color: text-color($yellow);
       margin: 1em;
+    }
+  }
+
+  @media (max-width: $max-width) {
+    section {
+      padding-left: 2em;
+      padding-right: 2em;
     }
   }
 }
