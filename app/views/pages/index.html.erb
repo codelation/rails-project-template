@@ -121,6 +121,13 @@
   </p>
 
   <p>
+    Files with the name <code>index.html.erb</code> will be served at the root path for that directory.
+    Example: <code>app/views/features/index.html.erb</code> will live at
+    <a href="http://example.com/features" target="_blank">http://example.com/features</a>.
+    The link helper will be available as <code>features_path</code>.
+  </p>
+
+  <p>
     Files within subfolders will not be served by the <code>PagesController</code>. They will
     be served by a generated controller matching the name of the folder. In the case of our
     &quot;Features > Overview&quot; page, the controller would be the <code>Pages::FeaturesController</code>.
