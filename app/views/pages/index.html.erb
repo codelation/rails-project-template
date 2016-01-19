@@ -77,7 +77,12 @@
 </section>
 
 <section>
-  <h3 id="static-pages">1 Static Pages</h3>
+  <h3 id="static-pages">
+    <span>
+      <a href="#welcome"><i class="fa fa-arrow-circle-o-up"></i></a>
+      1 Static Pages
+    </span>
+  </h3>
 
   <p>
     Every project is going to have a whole bunch of pages that <em>don&#39;t need backend functionality.</em>
@@ -101,7 +106,10 @@
 </section>
 
 <section>
-  <h4 id="static-pages-views">1.1 Views</h4>
+  <h4 id="static-pages-views">
+    1.1 Views
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
     If I want my about page to live at
@@ -143,7 +151,10 @@
 </section>
 
 <section>
-  <h4 id="static-pages-page-titles">1.2 Page Titles</h4>
+  <h4 id="static-pages-page-titles">
+    1.2 Page Titles
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
     This Rails project uses the
@@ -188,7 +199,10 @@ end
 </section>
 
 <section>
-  <h4 id="static-pages-stylesheets">1.3 Stylesheets</h4>
+  <h4 id="static-pages-stylesheets">
+    1.3 Stylesheets
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
     We write our CSS using <a href="http://sass-lang.com" target="_blank">Sass</a>. All <code>.scss</code>
@@ -237,11 +251,16 @@ body.pages.about-us {
 }
 </pre>
 
-  <a href="#sass-mixins">Read more</a> about the Sass variables, functions, and mixins available in the project.
+  <p>
+    <a href="#sass-mixins">Read more</a> about the Sass variables, functions, and mixins available in the project.
+  </p>
 </section>
 
 <section>
-  <h4 id="static-pages-javascripts">1.4 JavaScripts</h4>
+  <h4 id="static-pages-javascripts">
+    1.4 JavaScripts
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
     Static pages don&#39;t usually need a lot of JavaScript, but you might need to sprinkle some in here or there.
@@ -285,7 +304,10 @@ App.register('pages.about-us').enter(function() {
 </section>
 
 <section>
-  <h4 id="static-pages-images">1.5 Images</h4>
+  <h4 id="static-pages-images">
+    1.5 Images
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
     There&#39;s not a lot to say about images. <em>Organize them in folders based on the page name.</em>
@@ -303,16 +325,13 @@ Rails.application.config.assets.precompile += %w(
 </pre>
 </section>
 
-<hr>
-
-<section class="back-to-top">
-  <p>
-    <a href="#welcome">Back to top</a>
-  </p>
-</section>
-
 <section>
-  <h3 id="layout">2 Layout</h3>
+  <h3 id="layout">
+    <span>
+      <a href="#welcome"><i class="fa fa-arrow-circle-o-up"></i></a>
+      2 Layout
+    </span>
+  </h3>
 
   <p>
     Now that we have a home page (does this page count?) and our &quot;About Us&quot; page, we&#39;re going
@@ -320,7 +339,10 @@ Rails.application.config.assets.precompile += %w(
     know where things live because the file naming conventions are pretty much the same:
   </p>
 
-  <h4 id="layout-multiple-layouts">2.1 Application Layout</h4>
+  <h4 id="layout-multiple-layouts">
+    2.1 Application Layout
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <h5>Views:</h5>
 
@@ -349,7 +371,10 @@ app/assets/stylesheets/application/layout/header.scss
 </section>
 
 <section>
-  <h4 id="layout-multiple-layouts">2.2 Multiple Layouts</h4>
+  <h4 id="layout-multiple-layouts">
+    2.2 Multiple Layouts
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
     Additional layouts should be created with the same conventions as the application layout,
@@ -380,14 +405,6 @@ app/assets/stylesheets/backend/layout/header.scss
   </p>
 </section>
 
-<hr>
-
-<section class="back-to-top">
-  <p>
-    <a href="#welcome">Back to top</a>
-  </p>
-</section>
-
 <section>
   <h2 id="codelation-assets">Awesome Assets</h2>
 
@@ -400,7 +417,62 @@ app/assets/stylesheets/backend/layout/header.scss
 </section>
 
 <section>
-  <h3 id="codelation-assets-stylesheets">1 Stylesheets</h3>
+  <h3 id="codelation-assets-stylesheets">
+    <span>
+      <a href="#welcome"><i class="fa fa-arrow-circle-o-up"></i></a>
+      1 Stylesheets
+    </span>
+  </h3>
+
+  <p>
+    Stylesheets are organized by layout, and within the layout they are organized into three folders.
+    In the case of the application layout, we have an <code>application.scss</code> file and an
+    <code>application</code> folder:
+  </p>
+
+<pre>
+app/assets/stylesheets/application/components/
+app/assets/stylesheets/application/layout/
+app/assets/stylesheets/application/views/
+app/assets/stylesheets/application.scss
+</pre>
+
+  <p>
+    The <code>application.scss</code> <em>should not contain any styles</em>; it is only the manifest for
+    which files are imported:
+  </p>
+
+<pre>
+@import "codelation";
+@import "application/variables";
+@import "application/**/*";
+</pre>
+
+  <p>
+    The <code>components</code> folder contains a single <code>.scss</code> file for each component defined.
+    A component might be a button, link, table, or <em>any globally reusable style</em>.
+    <a href="#sass-components">Read more</a>
+  </p>
+
+  <p>
+    The <code>layout</code> folder contains files for defining styles on the body class, header, footer,
+    and styles for flash messages that are <em>rendered on every page of the site</em>. Additional files
+    can be added for other components that are rendered on every page.
+  </p>
+
+  <p>
+    The <code>views</code> folder mirrors the files found in <code>app/views</code>. These styles are
+    are not used on multiple pages of the site, but instead are <em>specific to a single page or
+    controller</em>.
+    <a href="#single-page-styles">Read more</a>
+  </p>
+</section>
+
+<section>
+  <h4 id="single-page-styles">
+    1.1 Single Page Styles
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
 
@@ -408,7 +480,10 @@ app/assets/stylesheets/backend/layout/header.scss
 </section>
 
 <section>
-  <h4 id="single-page-styles">1.1 Single Page Styles</h4>
+  <h4 id="sass-components">
+    1.2 Reusable Components
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
 
@@ -416,7 +491,10 @@ app/assets/stylesheets/backend/layout/header.scss
 </section>
 
 <section>
-  <h4 id="sass-components">1.2 Reusable Components</h4>
+  <h4 id="sass-functions-and-mixins">
+    1.3 Functions and Mixins
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
 
@@ -424,7 +502,12 @@ app/assets/stylesheets/backend/layout/header.scss
 </section>
 
 <section>
-  <h4 id="sass-functions-and-mixins">1.3 Functions and Mixins</h4>
+  <h3 id="codelation-assets-javascripts">
+    <span>
+      <a href="#welcome"><i class="fa fa-arrow-circle-o-up"></i></a>
+      2 JavaScripts
+    </span>
+  </h3>
 
   <p>
 
@@ -432,7 +515,10 @@ app/assets/stylesheets/backend/layout/header.scss
 </section>
 
 <section>
-  <h3 id="codelation-assets-javascripts">2 JavaScripts</h3>
+  <h4 id="single-page-scripts">
+    2.1 Single Page Scripts
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
 
@@ -440,26 +526,13 @@ app/assets/stylesheets/backend/layout/header.scss
 </section>
 
 <section>
-  <h4 id="single-page-scripts">2.1 Single Page Scripts</h4>
+  <h4 id="javascript-components">
+    2.2 Reusable Components
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
 
   <p>
 
-  </p>
-</section>
-
-<section>
-  <h4 id="javascript-components">2.2 Reusable Components</h4>
-
-  <p>
-
-  </p>
-</section>
-
-<hr>
-
-<section class="back-to-top">
-  <p>
-    <a href="#welcome">Back to top</a>
   </p>
 </section>
 
