@@ -1,8 +1,8 @@
 // This file is meant to be replace completely after reading through the documentation.
-$code-background-color: color($grey, 100);
-$code-border-color: color($grey, 200);
-$code-color: color($grey, 800);
-$code-comment-color: $grey;
+$code-background-color: color($blue-grey, 50);
+$code-border-color: color($blue-grey, 100);
+$code-color: color($blue-grey, 800);
+$code-comment-color: color($blue-grey, 400);
 $em-background-color: color($yellow, 100);
 $important-background-color: $deep-orange;
 $max-width: 1000px;
@@ -68,7 +68,8 @@ body.pages.index {
     border-radius: 2px;
     display: inline-block;
     font-size: 0.9em;
-    padding: 0 5px 1px;
+    line-height: 1em;
+    padding: 3px 5px;
   }
 
   pre {
@@ -91,7 +92,8 @@ body.pages.index {
     background-color: $em-background-color;
     display: inline-block;
     font-style: normal;
-    padding: 0 3px 1px;
+    line-height: 1em;
+    padding: 3px;
   }
 
   section.important {
