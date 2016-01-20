@@ -1,4 +1,5 @@
-//= require_self
+//= require jquery
+//= require jquery_ujs
+//= require codelation
+//= require turbolinks
 //= require_tree ./application
-
-App = {};
