@@ -22,12 +22,33 @@
 en:
   activerecord:
     attributes:
-      widget:
-        thingy: Thingamajig
+      admin_user:
+        created_at: Created
+        current_sign_in_at: Current Session
+        current_sign_in_ip: Current IP Address
+        email: Email Address
+        last_sign_in_at: Last Session
+        last_sign_in_ip: Last IP Address
+        name: Full Name
+        sign_in_count: Number of Sessions
+        updated_at: Updated
+      user:
+        created_at: Created
+        current_sign_in_at: Current Session
+        current_sign_in_ip: Current IP Address
+        email: Email Address
+        last_sign_in_at: Last Session
+        last_sign_in_ip: Last IP Address
+        name: Full Name
+        sign_in_count: Number of Sessions
+        updated_at: Updated
     models:
-      widget:
-        one: Widget
-        other: Widgets
+      admin_user:
+        one: Admin User
+        other: Admin Users
+      user:
+        one: User
+        other: Users
   # Page titles based on controller/action
   # @see https://github.com/calebthompson/title
   titles:

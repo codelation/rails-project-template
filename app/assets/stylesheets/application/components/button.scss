@@ -2,5 +2,5 @@
 button,
 input[type="button"],
 input[type="submit"] {
-  @include button($active-font-color: $white);
+  @include button($active-color: $white);
 }
