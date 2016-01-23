@@ -8,24 +8,24 @@
   ],
   "env": {
     "ASSET_HOST": {
-      "description": "The host used to serve static assets",
+      "description": "The host used to serve static assets. Falls back to the HOST value if not set.",
       "required": false
     },
     "DEFAULT_FROM_EMAIL": {
-      "description": "The default email address to send emails from the app",
+      "description": "The default email address to send emails from the app.",
       "required": true
     },
     "HOST": {
-      "description": "The host used by as the canonical host and to generate URLs in mailers",
+      "description": "The host used as the canonical host and to generate URLs in mailers. This should be a custom domain tied to the app or [App Name].herokapp.com",
       "required": true
     },
     "RAILS_SERVE_STATIC_FILES": {
-      "description": "Enable serving static files. Point a CDN to your Rails app and set ASSET_HOST.",
+      "description": "This is enabled so you can point a CDN to your Rails app for serving static assets. Set ASSET_HOST to start using your CDN to cache static assets. Example: ASSET_HOST=abc123.cloudfront.net",
       "required": true,
       "value": "enabled"
     },
     "SECRET_KEY_BASE": {
-      "description": "The base token to use for verifying the integrity of your app's session cookies",
+      "description": "The base token to use for verifying the integrity of your app's session cookies.",
       "generator": "secret",
       "required": true
     }
