@@ -4,7 +4,12 @@
 
 ## Requirements
 
-If you've manage to generate the app, all you should need is [Postgres.app](http://postgresapp.com).
+The [codelation-cli](https://github.com/codelation/codelation-cli) gem will install all required software on OS X:
+
+```bash
+gem install codelation-cli
+codelation development:install
+```
 
 ## Development Setup
 

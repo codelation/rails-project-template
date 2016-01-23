@@ -1,18 +1,10 @@
-<%# Tables make for the best emails! %>
-<table>
-  <thead>
-    <tr>
-      <td>Rails Project</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= yield %></td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td></td>
-    </tr>
-  </tfoot>
-</table>
+<%# Styles will be injected as inline styles when emails are sent %>
+<%= stylesheet_link_tag "mailer" %>
+
+<div class="body">
+  <%= render partial: "layouts/mailer/header" unless @hide_header %>
+  <div class="main">
+    <%= yield %>
+  </div>
+  <%= render partial: "layouts/mailer/footer" unless @hide_footer %>
+</div>

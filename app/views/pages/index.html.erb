@@ -34,10 +34,17 @@
             <li><a href="#layout-multiple-layouts">2.2 Multiple Layouts</a></li>
           </ul>
         </li>
+        <li>
+          <a href="#email">3 Email</a>
+          <ul>
+            <li><a href="#email-previews">3.1 Email Previews</a></li>
+            <li><a href="#email-layout">3.2 Email Layout</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li>
-      <a href="#codelation-assets">Awesome Assets</a>
+      <a href="#codelation-assets">Codelation Assets</a>
       <ul>
         <li>
           <a href="#codelation-assets-stylesheets">1 Stylesheets</a>
@@ -406,11 +413,74 @@ app/assets/stylesheets/backend/layout/header.scss
 </section>
 
 <section>
-  <h2 id="codelation-assets">Awesome Assets</h2>
+  <h3 id="email">
+    <span>
+      <a href="#welcome"><i class="fa fa-arrow-circle-o-up"></i></a>
+      3 Email
+    </span>
+  </h3>
 
   <p>
-    Let&#39;s go over why this section is labeled &quot;Awesome Assets.&quot; In Codelation
-    Rails projects, everything has a place. CSS and JavaScript should apply to a
+    Almost every application needs to send emails. With this project template, it&#39;s easy to set up
+    your email layout, use Sass for styling, and preview emails in your browser with Live Reload.
+  </p>
+
+  <h4 id="email-previews">
+    3.1 Email Previews
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
+
+  <p>
+    Email previews are available for Rails 4.1+, so there&#39;s no longer a need to include a gem like
+    <a href="https://github.com/ryanb/letter_opener" target="_blank">Letter Opener</a> or
+    <a href="http://mailcatcher.me" target="_blank">MailCatcher</a>, or use a service like
+    <a href="https://mailtrap.io" target="_blank">Mailtrap</a>. These are all great, but now we
+    can preview emails right in the browser and use Live Reload, so it&#39;s like any other page in the app.
+    <em>Email previews can be found here:</em>
+  </p>
+
+  <p>
+    <a href="http://localhost:3000/rails/mailers" target="_blank">
+      http://localhost:3000/rails/mailers
+    </a>
+  </p>
+
+  <p>
+    If you need to create additional email previews, the mailer preview classes are found in
+    <code>spec/mailers/previews</code>, and additional documentation can be found here:
+  </p>
+
+  <p>
+    <a href="http://api.rubyonrails.org/v4.1.0/classes/ActionMailer/Base.html#class-ActionMailer::Base-label-Previewing+emails" target="_blank">
+      http://api.rubyonrails.org/v4.1.0/classes/ActionMailer/Base.html#class-ActionMailer::Base-label-Previewing+emails
+    </a>
+  </p>
+
+  <h4 id="email-layout">
+    3.2 Email Layout
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
+
+  <p>
+    Email layouts are just like application layouts, but <em>they don&#39;t include the html, body, or
+    head tags.</em> The default layout is: <code>app/views/layouts/mailer.html.erb</code>, and it is
+    used by default for all <a href="https://github.com/plataformatec/devise" target="_blank">Devise</a>
+    emails: email confirmation, password reset, etc.
+  </p>
+
+  <p>
+    The styles for the mailer layout are rendered by the file:
+    <code>app/assets/mailer.scss</code>. This Sass file imports all styles from the folder
+    <code>app/assets/mailer</code>, just like <code>application.scss</code>. The only difference
+    is that <em>the styles from <code>mailer.scss</code> are injected as inline styles.</em>
+  </p>
+</section>
+
+<section>
+  <h2 id="codelation-assets">Codelation Assets</h2>
+
+  <p>
+    In Codelation Rails projects, everything has a place. CSS and JavaScript should apply to a
     <em>single page by default</em> and should only be <em>global on purpose.</em>
     This section will go over how we accomplish this.
   </p>
@@ -449,19 +519,19 @@ app/assets/stylesheets/application.scss
 </pre>
 
   <p>
-    The <code>components</code> folder contains a single <code>.scss</code> file for each component defined.
+    The <strong>components</strong> folder contains a single <code>.scss</code> file for each component defined.
     A component might be a button, link, table, or <em>any globally reusable style</em>.
     <a href="#sass-components">Read more</a>
   </p>
 
   <p>
-    The <code>layout</code> folder contains files for defining styles on the body class, header, footer,
+    The <strong>layout</strong> folder contains files for defining styles on the body class, header, footer,
     and styles for flash messages that are <em>rendered on every page of the site</em>. Additional files
     can be added for other components that are rendered on every page.
   </p>
 
   <p>
-    The <code>views</code> folder mirrors the files found in <code>app/views</code>. These styles are
+    The <strong>views</strong> folder mirrors the files found in <code>app/views</code>. These styles are
     are not used on multiple pages of the site, but instead are <em>specific to a single page or
     controller</em>.
     <a href="#single-page-styles">Read more</a>
