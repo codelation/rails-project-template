@@ -8,7 +8,7 @@
   ],
   "env": {
     "ASSET_HOST": {
-      "description": "The host used to serve static assets. Falls back to the HOST value if not set.",
+      "description": "The host used to serve static assets. The HOST value will be used if not set.",
       "required": false
     },
     "DEFAULT_FROM_EMAIL": {
