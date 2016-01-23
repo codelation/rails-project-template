@@ -4,6 +4,7 @@
     "heroku-redis:hobby-dev",
     "logentries:le_tryit",
     "memcachier:dev",
+    "rollbar:free",
     "sendgrid:starter"
   ],
   "env": {
