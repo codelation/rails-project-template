@@ -1,0 +1,37 @@
+{
+  "addons": [
+    "heroku-postgresql:hobby-dev",
+    "heroku-redis:hobby-dev",
+    "logentries:le_tryit",
+    "memcachier:dev",
+    "sendgrid:starter"
+  ],
+  "env": {
+    "ASSET_HOST": {
+      "description": "The host used to serve static assets",
+      "required": false
+    },
+    "DEFAULT_FROM_EMAIL": {
+      "description": "The default email address to send emails from the app",
+      "required": true,
+      "value": "dev@codelation.com"
+    },
+    "HOST": {
+      "description": "The host used by as the canonical host and to generate URLs in mailers",
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "description": "Enable serving static files. Point a CDN to your Rails app and set ASSET_HOST.",
+      "required": true,
+      "value": "enabled"
+    },
+    "SECRET_KEY_BASE": {
+      "description": "The base token to use for verifying the integrity of your app's session cookies",
+      "generator": "secret",
+      "required": true
+    }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:schema:load"
+  }
+}
