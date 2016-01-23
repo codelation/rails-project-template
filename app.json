@@ -13,8 +13,7 @@
     },
     "DEFAULT_FROM_EMAIL": {
       "description": "The default email address to send emails from the app",
-      "required": true,
-      "value": "dev@codelation.com"
+      "required": true
     },
     "HOST": {
       "description": "The host used by as the canonical host and to generate URLs in mailers",
