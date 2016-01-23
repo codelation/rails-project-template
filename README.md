@@ -2,7 +2,7 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/codelation/rails-project-template)
 
-## Requirements
+## Development Setup
 
 The [codelation-cli](https://github.com/codelation/codelation-cli) gem will install all required software on OS X:
 
@@ -10,8 +10,6 @@ The [codelation-cli](https://github.com/codelation/codelation-cli) gem will inst
 gem install codelation-cli
 codelation development:install
 ```
-
-## Development Setup
 
 In order to run the project in development, you'll need to install the
 required RubyGems and set up your Postgres database:
