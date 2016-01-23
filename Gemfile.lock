@@ -323,14 +323,6 @@ GEM
     lumberjack (1.0.10)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mandrill-api (1.0.53)
-      excon (>= 0.16.0, < 1.0)
-      json (>= 1.7.7, < 2.0)
-    mandrill_mailer (1.2.0)
-      actionpack
-      activejob
-      activesupport
-      mandrill-api (~> 1.0.9)
     method_source (0.8.2)
     mime-types (2.99)
     mimemagic (0.3.0)
@@ -523,7 +515,6 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   local_time
-  mandrill_mailer
   paperclip
   passenger
   pg

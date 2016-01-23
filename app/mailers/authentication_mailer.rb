@@ -1,15 +1,20 @@
+# Mailer class used to send Devise emails using the shared application mailer layout.
 class AuthenticationMailer < ApplicationMailer
-  def reset_password_instructions(record, token, _opts = {})
+  def confirmation_instructions(record, token, _opts = {})
+    @resource = record
     @token = token
-    @user  = record
+    mail(to: @resource.email)
+  end
 
-    # mandrill_mail(
-    #   template: "reset-password-instructions",
-    #   to:       @user.email,
-    #   vars:     {
-    #     "USER_NAME" => @user.display_name,
-    #     "RESET_URL" => edit_user_password_url(reset_password_token: @token)
-    #   }
-    # )
+  def reset_password_instructions(record, token, _opts = {})
+    @resource = record
+    @token = token
+    mail(to: @resource.email)
+  end
+
+  def unlock_instructions(record, token, _opts = {})
+    @resource = record
+    @token = token
+    mail(to: @resource.email)
   end
 end
