@@ -24,4 +24,4 @@ Rails.application.configure do
   config.serve_static_files = ENV["RAILS_SERVE_STATIC_FILES"].present?
 end
 Rails.application.routes.default_url_options[:host] = ENV.fetch("HOST")
-Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
+Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 20).to_i
