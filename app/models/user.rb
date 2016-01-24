@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :async, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Returns the name to be displayed for the user. The user's name will be
