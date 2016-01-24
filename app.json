@@ -19,7 +19,7 @@
     "HOST": {
       "description": "The host used as the canonical host and to generate URLs in mailers. This should be a custom domain tied to the app or [App Name].herokapp.com",
       "required": true,
-      "value": "[App Name].herokapp.com"
+      "value": "???.herokapp.com"
     },
     "RAILS_SERVE_STATIC_FILES": {
       "description": "This is enabled so you can point a CDN to your Rails app for serving static assets. Set ASSET_HOST to start using your CDN to cache static assets. Example: ASSET_HOST=abc123.cloudfront.net",
