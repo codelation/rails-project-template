@@ -2,8 +2,8 @@
   "addons": [
     "heroku-postgresql:hobby-dev",
     "heroku-redis:hobby-dev",
-    "logentries:le_tryit",
     "memcachier:dev",
+    "papertrail:choklad",
     "rollbar:free",
     "sendgrid:starter"
   ],
