@@ -8,7 +8,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 Bundler.require(*Rails.groups)
-module RailsProject
+module RailsProjectTemplate
   class Application < Rails::Application
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.active_record.raise_in_transactional_callbacks = true

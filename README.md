@@ -1,4 +1,4 @@
-# Rails Project
+# Rails Project Template
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/codelation/rails-project-template)
 

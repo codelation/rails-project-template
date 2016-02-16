@@ -52,6 +52,6 @@ en:
   # Page titles based on controller/action
   # @see https://github.com/calebthompson/title
   titles:
-    application: Rails Project
+    application: Rails Project Template
     pages:
-      index: Rails Project Home
+      index: Rails Project Template Home
