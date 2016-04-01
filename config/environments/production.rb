@@ -13,7 +13,7 @@ Rails.application.configure do
   config.assets.digest = true
   config.assets.js_compressor = :uglifier
   config.cache_classes = true
-  config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"].split(","), CACHE_STORE_SETTINGS
+  config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"].to_s.split(","), CACHE_STORE_SETTINGS
   config.consider_all_requests_local = false
   config.eager_load = true
   config.i18n.fallbacks = true
