@@ -1,8 +1,8 @@
 /* jshint node:true */
-var codelation = require('./node_modules/codelation-asset-pipeline/index');
+var callaway = require('./node_modules/callaway/index');
 
-codelation.css(['active_admin', 'application', 'mailer']);
-codelation.js(['active_admin', 'application']);
-codelation.static(['images']);
+callaway.css(['active_admin', 'application', 'mailer']);
+callaway.js(['active_admin', 'application']);
+callaway.static(['images']);
 
-module.exports = codelation.tree();
+module.exports = callaway.tree();
