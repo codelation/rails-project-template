@@ -1,0 +1,9 @@
+{
+  "name": "rails-project-template",
+  "version": "1.0.0",
+  "description": "Rails Project Template",
+  "author": "Codelation",
+  "devDependencies": {
+    "blumenkohl.js": "0.0.1"
+  }
+}
