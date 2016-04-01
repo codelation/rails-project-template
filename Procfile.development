@@ -1,2 +1,3 @@
+broccoli: node node_modules/blumenkohl.js/blumenkohl.js public
 livereload: LIVERELOAD=true bundle exec guard start -i
 web: rails s Puma
