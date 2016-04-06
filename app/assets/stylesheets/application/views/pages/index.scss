@@ -9,6 +9,10 @@ $important-background-color: $deep-orange;
 body.pages.index {
   padding: 0 0 2em;
 
+  .logo {
+    background-image: image-url("subfolder/codelation.png");
+  }
+
 // Sections
 
   section {

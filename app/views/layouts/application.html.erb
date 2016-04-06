@@ -4,8 +4,11 @@
   <title><%= @title || title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/<%= ENV['FONT_AWESOME_VERSION'] || '4.5.0' %>/css/font-awesome.min.css">
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%# stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%# javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" charset="utf-8"></script>
+  <script src="/js/application.js" charset="utf-8"></script>
+  <link rel="stylesheet" media="all" href="/css/application.css" data-turbolinks-track="true">
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
