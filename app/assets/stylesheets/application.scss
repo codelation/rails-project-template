@@ -1,3 +1,7 @@
 @import "codelation";
 @import "application/variables";
 @import "application/**/*";
+
+body {
+  background: $green;
+}

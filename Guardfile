@@ -20,10 +20,10 @@ if ENV["LIVERELOAD"]
     watch(%r{app/admin/.+\.rb})
     watch(%r{app/views/.+\.(erb|haml|slim)$})
     watch(%r{app/helpers/.+\.rb})
-    watch(%r{public/.+\.(css|js|html)})
     watch(%r{config/locales/.+\.yml})
-    # Rails Assets Pipeline
-    watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|html|jpg|js|png|scss))).*}) {|m| "/assets/#{m[3]}" }
+    # Callaway Assets Pipeline
+    # watch(%r{public/.+\.(css|jpg|js|png)})
+    watch(%r{public/.+\.map})
   end
 else
   guard :rspec, cmd: "bin/rspec" do

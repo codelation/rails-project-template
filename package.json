@@ -5,5 +5,8 @@
   "author": "Codelation",
   "devDependencies": {
     "blumenkohl.js": "0.0.1"
+  },
+  "dependencies": {
+    "turbolinks": "^5.0.0-beta4"
   }
 }
