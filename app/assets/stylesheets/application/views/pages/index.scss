@@ -130,12 +130,4 @@ body.pages.index {
       margin: 1em;
     }
   }
-
-  // Add padding when the window is smaller than max width
-  @media (max-width: $max-width) {
-    section > * {
-      padding-left: 2em;
-      padding-right: 2em;
-    }
-  }
 }
