@@ -1,2 +1,3 @@
 livereload: LIVERELOAD=true bundle exec guard start -i
 web: rails s Puma
+webpack: webpack -d --config config/webpack/development.js --watch --colors

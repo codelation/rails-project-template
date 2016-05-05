@@ -4,10 +4,10 @@
   "description": "Rails Project Template",
   "author": "Codelation",
   "devDependencies": {
-    "webpack": "~1.4.13",
+    "exports-loader": "~0.6.2",
     "expose-loader": "~0.6.0",
     "imports-loader": "~0.6.3",
-    "exports-loader": "~0.6.2"
+    "webpack": "~1.4.13"
   },
   "dependencies": {
     "turbolinks": "^5.0.0-beta4"

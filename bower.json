@@ -1,0 +1,11 @@
+{
+  "name": "rails-project-template",
+  "homepage": "https://github.com/codelation/rails-project-template",
+  "private": true,
+  "dependencies": {
+    "vue": "^1.0.19",
+    "jquery": "^2.2.2",
+    "codelation-sass-mixins": "^1.0.1",
+    "jquery-ujs": "^1.2.1"
+  }
+}
