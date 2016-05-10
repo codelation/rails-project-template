@@ -3,9 +3,9 @@
   "homepage": "https://github.com/codelation/rails-project-template",
   "private": true,
   "dependencies": {
-    "vue": "^1.0.19",
+    "codelation-sass-mixins": "^1.1.1",
     "jquery": "^2.2.2",
-    "codelation-sass-mixins": "^1.0.1",
-    "jquery-ujs": "^1.2.1"
+    "jquery-ujs": "^1.2.1",
+    "normalize-css": "^4.0.0"
   }
 }
