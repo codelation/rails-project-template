@@ -44,8 +44,8 @@ module.exports = {
   context: appRoot,
 
   entry: {
-    active_admin: ['./app/assets/active_admin/main.js', 'turbolinks'],
-    application:  ['./app/assets/application/main.js', 'turbolinks']
+    active_admin: ['./app/assets/bundles/active_admin/main.js', 'turbolinks'],
+    application:  ['./app/assets/bundles/application/main.js', 'turbolinks']
   },
 
   module: {
@@ -93,7 +93,7 @@ module.exports = {
     // you'll be able to do `require('./utils')` instead of `require('./utils.js')`
     extensions: ['', '.js'],
 
-    // Add Bower and Node modules to the directories searched by Webpack
+    // Add Bower modules, Node modules, and utilities to the directories searched by Webpack
     modulesDirectories: [
       'app/assets/utilities',
       'bower_components',
