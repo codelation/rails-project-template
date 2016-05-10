@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* jshint node: true, camelcase: false */
 var appRoot = require('app-root-path') + '';
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var fs = require('fs');
@@ -44,8 +44,8 @@ module.exports = {
   context: appRoot,
 
   entry: {
-    admin:       ['./app/assets/admin/main.js', 'turbolinks'],
-    application: ['./app/assets/application/main.js', 'turbolinks']
+    active_admin: ['./app/assets/active_admin/main.js', 'turbolinks'],
+    application:  ['./app/assets/application/main.js', 'turbolinks']
   },
 
   module: {
