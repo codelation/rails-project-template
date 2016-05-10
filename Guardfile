@@ -22,8 +22,8 @@ if ENV["LIVERELOAD"]
     watch(%r{app/helpers/.+\.rb})
     watch(%r{public/.+\.(css|js|html)})
     watch(%r{config/locales/.+\.yml})
-    # Rails Assets Pipeline
-    watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|html|jpg|js|png|scss))).*}) {|m| "/assets/#{m[3]}" }
+    # Webpack + Rails Assets Pipeline
+    watch(%r{app/assets/_build/.+\.(css|html|jpg|js|png|scss)$})
   end
 else
   guard :rspec, cmd: "bin/rspec" do

@@ -11,7 +11,6 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
   config.assets.compile = false
   config.assets.digest = true
-  config.assets.js_compressor = :uglifier
   config.cache_classes = true
   config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"].to_s.split(","), CACHE_STORE_SETTINGS
   config.consider_all_requests_local = false

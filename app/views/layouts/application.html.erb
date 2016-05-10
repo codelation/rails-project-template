@@ -10,7 +10,7 @@
   <%= yield :head %>
 </head>
 
-<body class="<%= body_class %>">
+<body class="<%= body_class %>" data-js-view-path="<%= javascript_view_path %>">
   <%= render partial: "layouts/application/header" unless @hide_header %>
   <%= render partial: "layouts/shared/flash_messages" %>
 

@@ -27,4 +27,4 @@ dump.rdb
 npm-debug.log
 
 # Ignore assets compiled by Webpack
-/app/assets/build/*
+/app/assets/_build/*

@@ -1,0 +1,14 @@
+$link-color-active: color($link-color, 800);
+$link-color-hover:  color($link-color, 700);
+
+a {
+  color: $link-color;
+
+  &:hover {
+    color: darken($link-color, 10%);
+  }
+
+  &:active {
+    color: darken($link-color, 20%);
+  }
+}

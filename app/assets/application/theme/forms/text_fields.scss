@@ -1,0 +1,14 @@
+#{$all-text-inputs} {
+  border: 1px solid $border-color;
+  padding: 4px 6px;
+  width: 100%;
+}
+
+#{$all-text-inputs-focus},
+#{$all-text-inputs-hover} {
+  border: 1px solid darken($border-color, 10%);
+}
+
+#{$all-text-inputs-active} {
+  border: 1px solid darken($border-color, 20%);
+}

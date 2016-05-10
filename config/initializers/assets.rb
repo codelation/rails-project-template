@@ -8,7 +8,7 @@ Rails.application.config.assets.version = "1.0"
 
 # Set up the asset paths to only compile assets in the app/assets directory
 Rails.application.config.assets.paths = [
-  Rails.root.join("app/assets/build")
+  Rails.root.join("app/assets/_build")
 ]
 Rails.application.config.assets.precompile += [
   "*.css",
