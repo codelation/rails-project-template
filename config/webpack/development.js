@@ -102,7 +102,7 @@ module.exports = {
   },
 
   sassLoader: {
-    data:         '@import "codelation";\n',
+    data:         '@import "codelation";\n$env: ' + process.env.NODE_ENV + ';\n',
     includePaths: sassSources
   }
 };
