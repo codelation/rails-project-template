@@ -1,0 +1,1 @@
+Vue.options.replace = false;

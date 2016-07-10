@@ -22,4 +22,22 @@ module ApplicationHelper
     body_classes << @body_class if @body_class
     body_classes.join(" ")
   end
+
+  # Returns the JavaScript view name that should be required for the
+  # current page based on the current controller and action.
+  # @return [String]
+  def view_name
+    controller_name = controller.controller_name.dasherize
+    action_name = controller.action_name.dasherize
+
+    # Use the new class for styling the create action
+    # and use the edit class for styling the update action.
+    if controller.action_name == "create"
+      action_name = "new"
+    elsif controller.action_name == "update"
+      action_name = "edit"
+    end
+
+    "#{controller_name}/#{action_name}"
+  end
 end

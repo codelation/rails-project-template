@@ -7,6 +7,11 @@
     "rollbar:free",
     "sendgrid:starter"
   ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }],
   "env": {
     "ASSET_HOST": {
       "description": "The host used to serve static assets. The HOST value will be used if not set.",
@@ -14,12 +19,18 @@
     },
     "DEFAULT_FROM_EMAIL": {
       "description": "The default email address to send emails from the app.",
-      "required": true
+      "required": true,
+      "value": "dev@codelation.com"
     },
     "HOST": {
       "description": "The host used as the canonical host and to generate URLs in mailers. This should be a custom domain tied to the app or [App Name].herokuapp.com",
       "required": true,
       "value": "???.herokuapp.com"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Set to false so devDependencies are installed to compile webpack assets",
+      "required": true,
+      "value": "false"
     },
     "RAILS_SERVE_STATIC_FILES": {
       "description": "This is enabled so you can point a CDN to your Rails app for serving static assets. Set ASSET_HOST to start using your CDN to cache static assets. Example: ASSET_HOST=abc123.cloudfront.net",

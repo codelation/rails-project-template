@@ -1,2 +1,3 @@
 livereload: LIVERELOAD=true bundle exec guard start -i
-web: rails s Puma
+web: rails s Puma -p 3001 -b 0.0.0.0
+webpack: ./node_modules/.bin/webpack-dev-server --config config/webpack/development.js --debug --hot --inline --port 3000

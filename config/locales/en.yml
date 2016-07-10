@@ -53,5 +53,3 @@ en:
   # @see https://github.com/calebthompson/title
   titles:
     application: Rails Project Template
-    pages:
-      index: Rails Project Template Home

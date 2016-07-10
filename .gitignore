@@ -20,3 +20,11 @@
 
 # Ignore Redis dump file
 dump.rdb
+
+# Ignore bower packages and node modules
+/bower_components
+/node_modules
+npm-debug.log
+
+# Ignore assets compiled by Webpack
+/app/assets/_build/*

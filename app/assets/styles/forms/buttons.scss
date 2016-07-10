@@ -1,0 +1,83 @@
+.button,
+button,
+input[type="button"],
+input[type="submit"] {
+  @include transition(all 0.2s ease-in-out);
+  background-color: $accent-color;
+  border: 0;
+  border-radius: 0.313em;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  padding: 0.625em 1.250em;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+  }
+}
+
+%button {
+  color: $white;
+  font-size: 1em;
+  padding: 1.250em 2.5em;
+}
+
+.primary.button {
+  @extend %button;
+  background-color: $call-to-action-color;
+
+
+  &:hover {
+    background: darken($call-to-action-color, 10%);
+  }
+}
+
+.secondary.button {
+  background-color: $accent-color;
+  color: $white;
+  padding: 20px;
+
+  &:hover {
+    background: darken($accent-color, 10%);
+  }
+}
+
+%action-buttons {
+  background-color: $white;
+  border: 2px solid color($grey, 300);
+  color: $grey;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 25px;
+  padding: 5px 15px;
+}
+
+.cancel.button {
+  @extend %action-buttons;
+
+  &:hover {
+    background-color: color($grey, 300);
+  }
+}
+
+.destroy.button {
+  @extend %action-buttons;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $red;
+    border-color: $red;
+    color: $white;
+  }
+}
+
+.call-to-action {
+  background-color: $accent-color;
+  border-radius: em(5px);
+  color: $white;
+  padding: 1em 2em;
+  text-decoration: none;
+}

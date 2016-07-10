@@ -2,15 +2,15 @@
 <html>
 <head>
   <title><%= @title || title %></title>
+  <meta name="turbolinks-cache-control" content="no-preview">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/<%= ENV['FONT_AWESOME_VERSION'] || '4.5.0' %>/css/font-awesome.min.css">
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true if Rails.env.production? %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
 
-<body class="<%= body_class %>">
+<body class="<%= body_class %>" data-view-name="<%= view_name %>">
   <%= render partial: "layouts/application/header" unless @hide_header %>
   <%= render partial: "layouts/shared/flash_messages" %>
 
