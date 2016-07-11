@@ -3,6 +3,7 @@ let view;
 document.addEventListener('turbolinks:load', function() {
   let loadView;
   let viewName = document.body.getAttribute('data-view-name');
+  document.documentElement.setAttribute('data-view-name', viewName);
 
   // Attempt to load the page specific view if it exists
   try {

@@ -1,4 +1,6 @@
-main {
+body {
+  background-color: color($blue-grey, 800);
+  color: $deep-orange;
   padding: 5em;
   text-align: center;
 }
