@@ -34,3 +34,7 @@ app with Puma at <http://localhost:3000>.
 ```bash
 rake start
 ```
+
+## Vue Icons
+
+TODO: Write how to add/remove icons

@@ -1,15 +1,9 @@
-let view;
+export default function(callback) {
+  require.ensure(['vue'], function(require) {
+    // Register any Vue components that will be used on the page
+    // Vue.component('example', require('example-component'));
 
-export default class {
-  mount() {
-    require.ensure(['vue'], function(require) {
-      // Register any Vue components that will be used on the page
-      // Vue.component('example', require('example-component'));
-      view = new Vue({ el: document.body });
-    });
-  }
-
-  unmount() {
-    view.$destroy();
-  }
+    // The callback is needed to create the root Vue after the components are registered
+    callback();
+  });
 }

@@ -11,13 +11,14 @@ module.exports = {
   },
 
   callbackLoader: {
-    getIcons: iconLoader([]).getIcons
+    getIcons: iconLoader(['fa-smile-o']).getIcons
   },
 
   context: appRoot,
 
   entry: {
-    application: ['sizzle', 'turbolinks', 'vue', 'vuex', path.join(appRoot, 'app/assets/application.js')]
+    application: ['sizzle', 'turbolinks', 'vue', 'vuex', path.join(appRoot, 'app/assets/application.js')],
+    stylesheets: [path.join(appRoot, 'app/assets/application.scss')]
   },
 
   module: {

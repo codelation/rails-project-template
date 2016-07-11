@@ -2,10 +2,20 @@
 <html>
 <head>
   <title><%= @title || title %></title>
+
   <meta name="turbolinks-cache-control" content="no-preview">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true if Rails.env.production? %>
+
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+  <%# Load CSS using JS and webpack's hot reload in development, otherwise use the %>
+  <%# webpack ExtractTextPlugin to load the CSS from a compiled stylesheet file. %>
+  <% if Rails.env.development? %>
+    <%= javascript_include_tag "stylesheets", "data-turbolinks-track" => true %>
+  <% else %>
+    <%= stylesheet_link_tag "application", "data-turbolinks-track" => true, media: "all" %>
+  <% end %>
+
   <%= csrf_meta_tags %>
   <%= yield :head %>
 </head>
@@ -19,7 +29,6 @@
   </main>
 
   <%= render partial: "layouts/application/footer" unless @hide_footer %>
-  <%= yield :scripts %>
   <%= render partial: "layouts/shared/analytics" %>
 </body>
 

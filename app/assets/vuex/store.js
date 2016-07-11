@@ -1,11 +1,5 @@
-import { JsonApiClient, JsonApiSerializer } from 'jsonapi';
-import ProgressBar from 'progress-bar';
-
-const client = new JsonApiClient();
-
-const state = {};
-
 const mutations = {};
+const state = {};
 
 export default new Vuex.Store({
   mutations,
