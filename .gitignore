@@ -25,6 +25,3 @@ dump.rdb
 /bower_components
 /node_modules
 npm-debug.log
-
-# Ignore assets compiled by Webpack
-/app/assets/_build/*
