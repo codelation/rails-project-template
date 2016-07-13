@@ -1,0 +1,9 @@
+{
+  "name": "rails-project-template",
+  "homepage": "https://github.com/codelation/rails-project-template",
+  "private": true,
+  "dependencies": {
+    "codelation-sass-mixins": "^1.1.2",
+    "normalize-css": "^4.0.0"
+  }
+}

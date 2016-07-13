@@ -1,0 +1,18 @@
+//-------------------------------------------------------------
+// Colors
+//-------------------------------------------------------------
+$accent-color:         $blue             !default;
+$call-to-action-color: $blue             !default;
+$background-color:     color($grey, 50)  !default;
+$border-color:         color($grey, 400) !default;
+$link-color:           $blue             !default;
+$primary-color:        $blue-grey        !default;
+$text-color:           color($grey, 800) !default;
+
+//-------------------------------------------------------------
+// Fonts
+//-------------------------------------------------------------
+
+$font-family:         $helvetica   !default;
+$font-size:           14px         !default;
+$heading-font-family: $font-family !default;

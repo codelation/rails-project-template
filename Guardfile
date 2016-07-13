@@ -16,14 +16,24 @@
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
 if ENV["LIVERELOAD"]
-  guard "livereload" do
-    watch(%r{app/admin/.+\.rb})
+  guard :livereload do
+    watch(%r{app/admin/.+\.rb$})
     watch(%r{app/views/.+\.(erb|haml|slim)$})
-    watch(%r{app/helpers/.+\.rb})
-    watch(%r{public/.+\.(css|js|html)})
-    watch(%r{config/locales/.+\.yml})
-    # Rails Assets Pipeline
-    watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|html|jpg|js|png|scss))).*}) {|m| "/assets/#{m[3]}" }
+    watch(%r{app/helpers/.+\.rb$})
+    watch(%r{config/locales/.+\.yml$})
+    watch(%r{public/.+\.(css|gif|html|jpg|js|png|svg)$})
+  end
+
+  # Force webpack to reload the glob imports when new Sass files are added.
+  guard :shell do
+    # Force webpack to reload the glob imports when new images files are added.
+    watch(%r{app/assets/images/.+\.(gif|jpg|png|svg)$}) { `touch app/assets/application.js` }
+
+    # Force webpack to reload the glob imports when new initializer files are added.
+    watch(%r{app/assets/initializers/.+\.js$}) { `touch app/assets/application.js` }
+
+    # Force webpack to reload the glob imports when new Sass files are added.
+    watch(%r{app/assets/styles/.+\.scss$}) { `touch app/assets/application.scss` }
   end
 else
   guard :rspec, cmd: "bin/rspec" do

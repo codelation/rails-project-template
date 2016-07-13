@@ -1,0 +1,21 @@
+{
+  "name": "rails-project-template",
+  "description": "Rails Project Template",
+  "author": "Codelation",
+  "repository": "https://github.com/codelation/rails-project-template",
+  "scripts": {
+    "heroku-postbuild": "rm -rf public/assets && bower install && webpack --config config/webpack/production.js"
+  },
+  "devDependencies": {
+    "codelation-webpack-toolkit": "^0.1.0"
+  },
+  "dependencies": {
+    "lodash.isplainobject": "^4.0.4",
+    "numeral": "^1.5.3",
+    "pluralize": "^2.0.0",
+    "sizzle": "^2.3.0",
+    "turbolinks": "^5.0.0-beta5",
+    "vuelation-toolkit": "^0.1.0",
+    "whatwg-fetch": "^1.0.0"
+  }
+}

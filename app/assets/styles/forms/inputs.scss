@@ -1,0 +1,28 @@
+#{$all-text-inputs} {
+  @include appearance(none);
+  background-color: color($grey, 50);
+  border: 1px solid $border-color;
+  font-size: 14px;
+  outline: none;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+#{$all-text-inputs-active},
+#{$all-text-inputs-focus} {
+  border: 1px solid darken($border-color, 20%);
+  z-index: 2;
+}
+
+.input.invalid {
+  #{$all-text-inputs} {
+    border-color: $red;
+  }
+
+  .errors {
+    color: color($red, 600);
+    font-size: 0.8em;
+  }
+}

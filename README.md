@@ -11,11 +11,13 @@ gem install codelation-cli
 codelation development:install
 ```
 
-In order to run the project in development, you'll need to install the
-required RubyGems and set up your Postgres database:
+In order to run the project in development, you'll need to install the required
+RubyGems, NPM Packages, Bower Components, and set up your Postgres database:
 
 ```bash
 bundle install
+npm install
+bower install
 rake db:setup
 ```
 
@@ -30,5 +32,9 @@ if it isn't running already and then start the Rails
 app with Puma at <http://localhost:3000>.
 
 ```bash
-$ rake start
+rake start
 ```
+
+## Vue Icons
+
+TODO: Write how to add/remove icons
