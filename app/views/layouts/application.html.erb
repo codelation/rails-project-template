@@ -10,9 +10,7 @@
 
   <%# Load CSS using JS and webpack's hot reload in development, otherwise use the %>
   <%# webpack ExtractTextPlugin to load the CSS from a compiled stylesheet file. %>
-  <% if Rails.env.development? %>
-    <%= javascript_include_tag "stylesheets", "data-turbolinks-track" => true %>
-  <% else %>
+  <% unless Rails.env.development? %>
     <%= stylesheet_link_tag "application", "data-turbolinks-track" => true, media: "all" %>
   <% end %>
 

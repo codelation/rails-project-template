@@ -17,8 +17,18 @@ module.exports = {
   context: appRoot,
 
   entry: {
-    application: ['sizzle', 'turbolinks', 'vue', 'vuex', path.join(appRoot, 'app/assets/application.js')],
-    stylesheets: [path.join(appRoot, 'app/assets/application.scss')]
+    active_admin: path.join(appRoot, 'app/assets/active_admin.scss'),
+
+    application: [
+      'sizzle',
+      'turbolinks',
+      'vue',
+      'vuex',
+      path.join(appRoot, 'app/assets/application.js'),
+      path.join(appRoot, 'app/assets/application.scss')
+    ],
+
+    mailer: path.join(appRoot, 'app/assets/mailer.scss')
   },
 
   module: {
