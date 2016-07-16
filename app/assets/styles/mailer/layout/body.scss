@@ -1,0 +1,16 @@
+$body-color:            color($grey, 900);
+$body-font-family:      sans-serif;
+$body-font-size:        16px;
+$body-line-height:      1.6875;
+
+.body {
+  color: $body-color;
+  font-family: $body-font-family;
+  font-size: $body-font-size;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: $body-line-height;
+  min-height: 100%;
+  padding: 1em 0;
+  text-rendering: optimizelegibility;
+  width: 100%;
+}
