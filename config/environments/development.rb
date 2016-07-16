@@ -1,6 +1,7 @@
 Rails.application.configure do
+  config.action_controller.asset_host = ENV.fetch("ASSET_HOST", ENV.fetch("HOST"))
   config.action_controller.perform_caching = false
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
   config.action_mailer.delivery_method = :test
   config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
   config.action_mailer.raise_delivery_errors = true
@@ -17,8 +18,8 @@ Rails.application.configure do
   config.lograge.enabled = true
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload, no_swf: true
 end
-Rails.application.routes.default_url_options[:host] = "localhost:3000"
+Rails.application.routes.default_url_options[:host] = ENV.fetch("HOST")
 
 HttpLogger.collapse_body_limit = nil
 HttpLogger.colorize = true
-HttpLogger.ignore = [/.*livereload\.js/]
+HttpLogger.ignore = [/localhost:3000/, /livereload/]

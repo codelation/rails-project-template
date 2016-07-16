@@ -1,0 +1,24 @@
+$em-background-color: color($yellow, 100);
+$link-color-active:   darken($link-color, 20%);
+$link-color-hover:    darken($link-color, 10%);
+$small-color:         lighten($text-color, 15%);
+
+// Emphasis
+em {
+  background-color: $em-background-color;
+  display: inline-block;
+  font-style: normal;
+  line-height: 1em;
+  padding: 3px;
+}
+
+// Small
+small {
+  color: $small-color;
+  font-size: 0.8em;
+}
+
+// Strong
+strong {
+  font-weight: bold;
+}

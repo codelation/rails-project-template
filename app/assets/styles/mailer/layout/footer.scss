@@ -1,0 +1,5 @@
+.footer {
+  @include outer-container;
+  margin: 0.5em auto;
+  text-align: center;
+}
