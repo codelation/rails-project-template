@@ -29,7 +29,6 @@ input[type="submit"] {
   @extend %button;
   background-color: $call-to-action-color;
 
-
   &:hover {
     background: darken($call-to-action-color, 10%);
   }
