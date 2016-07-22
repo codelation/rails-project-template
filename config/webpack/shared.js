@@ -17,15 +17,15 @@ module.exports = {
   context: appRoot,
 
   entry: {
-    active_admin: path.join(appRoot, 'app/assets/active_admin.scss'),
-
     application: [
       'sizzle',
       'turbolinks',
       'vue',
       'vuex',
       path.join(appRoot, 'app/assets/application.js'),
-      path.join(appRoot, 'app/assets/application.scss')
+      path.join(appRoot, 'app/assets/application.scss'),
+      path.join(appRoot, 'app/assets/active_admin.css'),
+      path.join(appRoot, 'app/assets/active_admin.js')
     ],
 
     mailer: path.join(appRoot, 'app/assets/mailer.scss')
@@ -42,7 +42,7 @@ module.exports = {
 
     loaders: [{
       test:    /\.jsx?$/,
-      exclude: /(bower_components|vue-icons)/,
+      exclude: /(active_admin|bower_components|vue-icons)/,
       loaders: ['babel']
     }, {
       test:    /\.vue$/,

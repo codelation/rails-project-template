@@ -9,6 +9,12 @@ config.module.loaders = config.module.loaders.concat([{
   test:    /\.scss$/,
   loader:  ExtractTextPlugin.extract(['css?sourceMap', 'resolve-url', 'sass?sourceMap'])
 }, {
+  test:   /active_admin\.css$/,
+  loader: 'file?name=stylesheets/[name]-[hash].css'
+}, {
+  test:   /active_admin\.js$/,
+  loader: 'file?name=javascripts/[name]-[hash].js'
+}, {
   test:    /\.(gif|png|jpe?g|svg)$/i,
   loaders: ['file?name=images/[name]-[hash].[ext]', 'image-webpack']
 }]);

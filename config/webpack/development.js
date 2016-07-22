@@ -13,8 +13,14 @@ config.devServer = {
 config.devtool = 'cheap-module-eval-source-map';
 
 config.module.loaders = config.module.loaders.concat([{
-  test:    /(active_admin|mailer)\.scss$/,
-  loader:  ExtractTextPlugin.extract(['css?sourceMap', 'resolve-url', 'sass?sourceMap']),
+  test:   /(active_admin|mailer)\.scss$/,
+  loader: ExtractTextPlugin.extract(['css?sourceMap', 'resolve-url', 'sass?sourceMap']),
+}, {
+  test:   /active_admin\.css$/,
+  loader: 'file?name=stylesheets/[name].css'
+}, {
+  test:   /active_admin\.js$/,
+  loader: 'file?name=javascripts/[name].js'
 }, {
   test:    /\.scss$/,
   exclude: /(active_admin|mailer)\.scss$/,
