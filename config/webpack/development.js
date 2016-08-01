@@ -27,7 +27,7 @@ config.module.loaders = config.module.loaders.concat([{
   loaders: ['style?sourceMap', 'css?sourceMap', 'resolve-url', 'sass?sourceMap']
 }, {
   test:    /\.(gif|png|jpe?g|svg)$/i,
-  loaders: ['file?name=images/[name].[ext]', 'image-webpack']
+  loaders: ['file?name=images/[name].[ext]']
 }]);
 
 config.output = {
@@ -35,7 +35,7 @@ config.output = {
   filename:      'javascripts/[name].js',
   path:          path.join(appRoot, 'public', 'assets'),
   pathinfo:      true,
-  publicPath:    'http://localhost:3000/',
+  publicPath:    '/',
 
   // Add the virtual source files under the domain > assets directory
   // in the browser developer tools Sources tab.

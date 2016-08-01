@@ -2,10 +2,17 @@ import camelize from 'camelize';
 import dasherize from 'dasherize';
 import isPlainObject from 'lodash.isplainobject';
 import pluralize from 'pluralize';
-import 'whatwg-fetch';
 
 function pluralDasherize(key) {
   return dasherize(pluralize(key));
+}
+
+// Load Array Polyfills if needed
+if (Array.find === undefined) {
+  Array.find = require('core-js/fn/array/find');
+}
+if (Array.prototype.forEach === undefined) {
+  Array.prototype.forEach = require('core-js/fn/array/for-each');
 }
 
 /**
@@ -90,7 +97,7 @@ class JsonApiSerializer {
     errors.forEach(function(error) {
       let attribute = 'base';
 
-      if (error.source !== null) {
+      if (error.source != null) {
         attribute = error.source.pointer.split('/').slice(-1);
       }
 
@@ -174,10 +181,10 @@ class JsonApiSerializer {
       }, this);
     }
 
-    let data = {
-      id:   record.id + '',
-      type: type
-    };
+    let data = { type };
+    if (record.id != null) {
+      data.id = record.id + '';
+    }
 
     delete record.id;
     delete record.type;
@@ -254,10 +261,13 @@ class JsonApiSerializer {
 
 /**
   A client JSON API (http://jsonapi.org) compliant APIs.
-
-  Requires polyfills for `Promise` and `fetch` in older browsers.
-  Recommended: `babel-polyfill` and `whatwg-fetch`
 */
+
+// Load Promise Polyfill
+if (typeof Promise === 'undefined') {
+  const Promise = require('core-js/fn/promise');
+}
+
 class JsonApiClient {
   /**
     Initialize a client object for performing API actions by specifying the API endpoint.
@@ -302,31 +312,50 @@ class JsonApiClient {
   create(type, record, options) {
     if (options === undefined) { options = {}; }
 
-    let headers = this.headers();
+    // Build the request
+    let request = new XMLHttpRequest();
     let serializer = this.serializer;
     let url = `${this._urlForType(type)}${this._queryStringFromOptions(options)}`;
+    request.open('POST', url, true);
+    request = this._setHeaders(request);
 
-    return new Promise(function(resolve, reject) {
-      fetch(url, {
-        body: JSON.stringify(serializer.serialize(type, record)),
-        headers,
-        method: 'POST'
-      }).then(function(response) {
-        if (response.headers.get('Content-Type').indexOf('application/vnd.api+json') < 0) {
-          throw new Error(response.statusText);
-        } else {
-          return response.json();
+    let promise = new Promise(function(resolve, reject) {
+      request.onreadystatechange = function() {
+        // We only care when the request has finished
+        if (request.readyState !== 4) { return; }
+
+        // If we're not getting back a JSON API response, something went wrong
+        if ((request.getResponseHeader('Content-Type') + '').indexOf('application/vnd.api+json') < 0) {
+          let error = request.statusText;
+          if (error + '' === '') {
+            error = 'There was a problem with the submission.';
+          }
+          return reject({ base: [error] });
         }
-      }).then(function(json) {
+
+        // Not all JSON responses are successful. It's possible that a JSON response may
+        // contain error information such as a bad filter or include on the request.
+        let json = JSON.parse(request.responseText);
+
+        switch (request.status) {
+        case 201:
+          resolve(serializer.deserialize(json));
+          return;
+        case 202, 204:
+          resolve(record);
+          return;
+        }
+
         if (json.hasOwnProperty('errors')) {
           reject(serializer.parseErrors(json.errors));
         } else {
-          resolve(serializer.deserialize(json));
+          reject(json);
         }
-      }).catch(function(error) {
-        reject({ base: [error] });
-      });
+      };
     });
+
+    request.send(JSON.stringify(serializer.serialize(type, record)));
+    return promise;
   }
 
   /**
@@ -345,23 +374,46 @@ class JsonApiClient {
     @return {Promise}
   */
   delete(type, id) {
-    let headers = this.headers();
+    // Build the request
+    let request = new XMLHttpRequest();
+    let serializer = this.serializer;
     let url = `${this._urlForType(type)}/${id}`;
+    request.open('DELETE', url, true);
+    request = this._setHeaders(request);
 
-    return new Promise(function(resolve, reject) {
-      fetch(url, {
-        headers,
-        method: 'DELETE'
-      }).then(function(response) {
-        if (response.ok) {
-          resolve(response);
-        } else {
-          throw new Error(response.statusText);
+    let promise = new Promise(function(resolve, reject) {
+      request.onreadystatechange = function() {
+        // We only care when the request has finished
+        if (request.readyState !== 4) { return; }
+
+        // If we're not getting back a JSON API response, something went wrong
+        if ((request.getResponseHeader('Content-Type') + '').indexOf('application/vnd.api+json') < 0) {
+          return reject({ base: [request.statusText] });
         }
-      }).catch(function(error) {
-        reject(error);
-      });
+
+        // Not all JSON responses are successful. It's possible that a JSON response may
+        // contain error information such as a bad filter or include on the request.
+        let json = JSON.parse(request.responseText);
+
+        switch (request.status) {
+        case 200:
+          resolve(serializer.deserialize(json));
+          return;
+        case 202, 204:
+          resolve(id);
+          return;
+        }
+
+        if (json.hasOwnProperty('errors')) {
+          reject(serializer.parseErrors(json.errors));
+        } else {
+          reject(json);
+        }
+      };
     });
+
+    request.send();
+    return promise;
   }
 
   /**
@@ -388,25 +440,36 @@ class JsonApiClient {
   find(type, id, options) {
     if (options === undefined) { options = {}; }
 
-    let headers = this.headers();
+    // Build the request
+    let request = new XMLHttpRequest();
     let serializer = this.serializer;
     let url = `${this._urlForType(type)}/${id}${this._queryStringFromOptions(options)}`;
+    request.open('GET', url, true);
+    request = this._setHeaders(request);
 
-    return new Promise(function(resolve, reject) {
-      fetch(url, {
-        headers
-      }).then(function(response) {
-        if (response.headers.get('Content-Type').indexOf('application/vnd.api+json') < 0) {
-          throw new Error(response.statusText);
-        } else {
-          return response.json();
+    let promise = new Promise(function(resolve, reject) {
+      request.onreadystatechange = function() {
+        // We only care when the request has finished
+        if (request.readyState !== 4) { return; }
+
+        // If we're not getting back a JSON API response, something went wrong
+        if ((request.getResponseHeader('Content-Type') + '').indexOf('application/vnd.api+json') < 0) {
+          throw new Error(request.statusText);
         }
-      }).then(function(json) {
-        resolve(serializer.deserialize(json));
-      }).catch(function(error) {
-        reject(error);
-      });
+
+        // Not all JSON responses are successful. It's possible that a JSON response may
+        // contain error information such as a bad filter or include on the request.
+        let json = JSON.parse(request.responseText);
+        if (request.status === 200) {
+          resolve(serializer.deserialize(json));
+        } else {
+          reject(json);
+        }
+      };
     });
+
+    request.send();
+    return promise;
   }
 
   /**
@@ -451,51 +514,39 @@ class JsonApiClient {
   findAll(type, options) {
     if (options === undefined) { options = {}; }
 
-    let headers = this.headers();
+    // Build the request
+    let request = new XMLHttpRequest();
     let serializer = this.serializer;
     let url = `${this._urlForType(type)}${this._queryStringFromOptions(options)}`;
+    request.open('GET', url, true);
+    request = this._setHeaders(request);
 
-    return new Promise(function(resolve, reject) {
-      fetch(url, {
-        headers
-      }).then(function(response) {
-        if (response.headers.get('Content-Type').indexOf('application/vnd.api+json') < 0) {
-          throw new Error(response.statusText);
-        } else {
-          return response.json();
+    let promise = new Promise(function(resolve, reject) {
+      request.onreadystatechange = function() {
+        // We only care when the request has finished
+        if (request.readyState !== 4) { return; }
+
+        // If we're not getting back a JSON API response, something went wrong
+        if ((request.getResponseHeader('Content-Type') + '').indexOf('application/vnd.api+json') < 0) {
+          throw new Error(request.statusText);
         }
-      }).then(function(json) {
-        resolve({
-          links:   json.links,
-          records: serializer.deserialize(json)
-        });
-      }).catch(function(error) {
-        reject(error);
-      });
-    });
-  }
 
-  /**
-    Returns the headers needed to perform a JSON API request.
-
-    @method headers
-    @return {Object}
-  */
-  headers() {
-    let headers = {
-      'Accept':       'application/vnd.api+json',
-      'Content-Type': 'application/vnd.api+json'
-    };
-
-    let csrfTokenMeta = Array.find(document.getElementsByTagName('meta'), function(meta) {
-      return meta.name === 'csrf-token';
+        // Not all JSON responses are successful. It's possible that a JSON response may
+        // contain error information such as a bad filter or include on the request.
+        let json = JSON.parse(request.responseText);
+        if (request.status === 200) {
+          resolve({
+            links:   json.links,
+            records: serializer.deserialize(json)
+          });
+        } else {
+          reject(json);
+        }
+      };
     });
 
-    if (csrfTokenMeta !== undefined) {
-      headers['X-CSRF-Token'] = csrfTokenMeta.content;
-    }
-
-    return headers;
+    request.send();
+    return promise;
   }
 
   /**
@@ -523,31 +574,50 @@ class JsonApiClient {
   update(type, record, options) {
     if (options === undefined) { options = {}; }
 
-    let headers = this.headers();
+    // Build the request
+    let request = new XMLHttpRequest();
     let serializer = this.serializer;
     let url = `${this._urlForType(type)}/${record.id}${this._queryStringFromOptions(options)}`;
+    request.open('PATCH', url, true);
+    request = this._setHeaders(request);
 
-    return new Promise(function(resolve, reject) {
-      fetch(url, {
-        body: JSON.stringify(serializer.serialize(type, record)),
-        headers,
-        method: 'PATCH'
-      }).then(function(response) {
-        if (response.headers.get('Content-Type').indexOf('application/vnd.api+json') < 0) {
-          throw new Error(response.statusText);
-        } else {
-          return response.json();
+    let promise = new Promise(function(resolve, reject) {
+      request.onreadystatechange = function() {
+        // We only care when the request has finished
+        if (request.readyState !== 4) { return; }
+
+        // If we're not getting back a JSON API response, something went wrong
+        if ((request.getResponseHeader('Content-Type') + '').indexOf('application/vnd.api+json') < 0) {
+          let error = request.statusText;
+          if (error + '' === '') {
+            error = 'There was a problem with the submission.';
+          }
+          return reject({ base: [error] });
         }
-      }).then(function(json) {
+
+        // Not all JSON responses are successful. It's possible that a JSON response may
+        // contain error information such as a bad filter or include on the request.
+        let json = JSON.parse(request.responseText);
+
+        switch (request.status) {
+        case 200:
+          resolve(serializer.deserialize(json));
+          return;
+        case 202, 204:
+          resolve(record);
+          return;
+        }
+
         if (json.hasOwnProperty('errors')) {
           reject(serializer.parseErrors(json.errors));
         } else {
-          resolve(serializer.deserialize(json));
+          reject(json);
         }
-      }).catch(function(error) {
-        reject({ base: [error] });
-      });
+      };
     });
+
+    request.send(JSON.stringify(serializer.serialize(type, record)));
+    return promise;
   }
 
   _queryStringFromOptions(options) {
@@ -574,6 +644,21 @@ class JsonApiClient {
     } else {
       return '';
     }
+  }
+
+  _setHeaders(request) {
+    request.setRequestHeader('Accept', 'application/vnd.api+json');
+    request.setRequestHeader('Content-Type', 'application/vnd.api+json');
+
+    let csrfTokenMeta = Array.find(document.getElementsByTagName('meta'), function(meta) {
+      return meta.name === 'csrf-token';
+    });
+
+    if (csrfTokenMeta !== undefined) {
+      request.setRequestHeader('X-CSRF-Token', csrfTokenMeta.content);
+    }
+
+    return request;
   }
 
   _urlForType(type) {

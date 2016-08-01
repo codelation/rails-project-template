@@ -17,3 +17,20 @@
 <icon name="fa-smile-o"></icon>
 <icon name="fa-smile-o"></icon>
 <icon name="fa-smile-o"></icon>
+
+<jsonapi-table endpoint="/api" type="users">
+  <div>
+    Somethign else
+  </div>
+
+  <jsonapi-column label="ID" sort="id">
+    {{record.id}}
+  </jsonapi-column>
+
+  <jsonapi-column label="Name">
+    {{record.firstName}} {{record.lastName}}
+  </jsonapi-column>
+</jsonapi-table>
+
+<user-form endpoint="/api" type="users">
+</user-form>

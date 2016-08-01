@@ -4,4 +4,8 @@ RailsProjectTemplate::Application.routes.draw do
   draw_static_pages
 
   resources :listings
+
+  namespace :api do
+    resources :users
+  end
 end
