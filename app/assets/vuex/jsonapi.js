@@ -154,6 +154,10 @@ class JsonApiSerializer {
       type: json.data.type
     };
 
+    if (json.data.attributes === undefined) {
+      return attributes;
+    }
+
     Object.keys(json.data.attributes).forEach(function(key) {
       attributes[camelize(key)] = json.data.attributes[key];
     });
