@@ -4,10 +4,10 @@
 
 ## Development Setup
 
-The [codelation-cli](https://github.com/codelation/codelation-cli) gem will install all required software on OS X:
+The [Codelation CLI](https://github.com/codelation/codelation-cli) will install all required software on OS X:
 
 ```bash
-gem install codelation-cli
+brew install codelation/tools/codelation-cli
 codelation development:install
 ```
 
