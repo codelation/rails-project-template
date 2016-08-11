@@ -1,14 +1,27 @@
 <template>
-  <span class="jsonapi-table-label">
-    {{label}}
-  </span>
-  <span class="jsonapi-table-value">
+  <div class="jsonapi-table-header sortable" v-on:click="performSort" v-if="sort">
+    {{header}}
+    <icon name="fa-sort-amount-asc" v-if="sortAttribute === sort && sortDirection === 'asc'">
+    </icon>
+    <icon name="fa-sort-amount-desc" v-if="sortAttribute === sort && sortDirection === 'desc'">
+    </icon>
+  </div>
+  <div class="jsonapi-table-header" v-else>
+    {{header}}
+  </div>
+  <div class="jsonapi-table-value">
     <slot></slot>
-  </span>
+  </div>
 </template>
 
 <script>
   export default {
-    props: ['format', 'label', 'record', 'sort']
+    methods: {
+      performSort() {
+        this.sortFunction(this.sort);
+      }
+    },
+
+    props: ['header', 'sort', 'sortAttribute', 'sortDirection', 'sortFunction', 'table']
   };
 </script>

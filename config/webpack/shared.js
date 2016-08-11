@@ -11,7 +11,11 @@ module.exports = {
   },
 
   callbackLoader: {
-    getIcons: iconLoader(['fa-smile-o']).getIcons
+    getIcons: iconLoader([
+      'fa-smile-o',
+      'fa-sort-amount-asc',
+      'fa-sort-amount-desc'
+    ]).getIcons
   },
 
   context: appRoot,
