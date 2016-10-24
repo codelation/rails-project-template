@@ -57,8 +57,7 @@
         <li>
           <a href="#codelation-assets-javascripts">2 JavaScripts</a>
           <ul>
-            <li><a href="#single-page-scripts">2.1 Single Page Scripts</a></li>
-            <li><a href="#javascript-components">2.2 Reusable Components</a></li>
+            <li><a href="#javascript-vue">2.1 Vue Examples</a></li>
           </ul>
         </li>
       </ul>
@@ -545,7 +544,9 @@ app/assets/stylesheets/application.scss
   </h4>
 
   <p>
-
+    Each page has a body class of <strong>.controller.action</strong>.  Create a file that mirrors that
+    view page in the stylesheets folder and start the file with <code>body.controller.action</code>, replacing
+    <code>controller</code> with the actual controller name, and the same for <code>action</code>.
   </p>
 </section>
 
@@ -556,7 +557,8 @@ app/assets/stylesheets/application.scss
   </h4>
 
   <p>
-
+    Reusable components will be placed in the <code>components</code> folder in your <code>stylesheets</code>
+    folder.  Make sure that the component has a distinctive class name.
   </p>
 </section>
 
@@ -567,8 +569,62 @@ app/assets/stylesheets/application.scss
   </h4>
 
   <p>
-
+    List of some functions available followed by a working example of columns and cards.
+    <ul>
+      <li><code>@include display(flex);</code> - to use flex box</li>
+      <li><code>@include justify-content(center);</code> - to justify content</li>
+      <li><code>@include align-items(center);</code> - to align items</li>
+      <li>...</li>
+      <br>
+      <li><code>color: $blue</code> - To use google colors</li>
+      <li><code>color: color($grey, 200)</code> - To use google colors of different hues</li>
+    </ul>
   </p>
+  <section>
+    <h1>Columns</h1>
+
+    <div class="columns">
+      <div>
+        Bacon ipsum dolor amet pancetta capicola porchetta pig, ribeye t-bone pork belly. Boudin kevin pig andouille. Flank boudin ribeye chuck venison picanha meatball hamburger kielbasa ball tip beef beef ribs turducken fatback. Corned beef swine meatloaf, porchetta shankle strip steak t-bone fatback chicken ribeye landjaeger biltong ground round. Spare ribs pig leberkas ham, turducken kielbasa bacon frankfurter jowl chicken.
+      </div>
+      <div>
+        Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter. Ham meatloaf corned beef, shank pastrami tail venison kevin. Turducken ground round pork chop, pig meatloaf drumstick kevin doner t-bone beef short loin cow pork loin venison alcatra.
+      </div>
+      <div>
+        Short loin bacon leberkas, corned beef porchetta shoulder bresaola landjaeger. Fatback brisket tail rump tenderloin hamburger meatball ham shoulder strip steak spare ribs short ribs alcatra salami short loin. Andouille ham ball tip shank, porchetta ham hock sirloin kielbasa tongue doner. Prosciutto beef ribs sausage, andouille shankle shoulder tongue t-bone swine chuck pork belly kevin doner pork spare ribs. Ribeye spare ribs frankfurter pastrami tri-tip strip steak sirloin ground round.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Cards</h1>
+
+    <div class="cards">
+      <div>
+        Bacon ipsum dolor amet pancetta capicola porchetta pig, ribeye t-bone pork belly. Boudin kevin pig andouille.
+      </div>
+      <div>
+        Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye.
+      </div>
+      <div>
+        Short loin bacon leberkas, corned beef porchetta shoulder bresaola landjaeger. Fatback brisket tail rump tenderloin hamburger meatball ham shoulder strip steak spare ribs short ribs alcatra salami short loin. Andouille ham ball tip shank, porchetta ham hock sirloin kielbasa tongue doner.
+      </div>
+      <div>
+        Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Center Children</h1>
+
+    <div class="center-children">
+      <h1>Hello World!</h1>
+      <p>
+        Bacon ipsum dolor amet pancetta capicola porchetta pig
+      </p>
+    </div>
+  </section>
 </section>
 
 <section>
@@ -580,74 +636,71 @@ app/assets/stylesheets/application.scss
   </h3>
 
   <p>
+    Javascripts mirror the <code>views</code> folder.  Each file will look similar to the following:
 
+<pre>
+(function() {
+  "use strict"
+
+  App.register('pages.index').enter(function() {
+    //When page loads
+  }).exit(function() {
+    //When page exits
+  });
+})();
+</pre>
+  </p>
+  <p>
+    For more details, look at the <code>_examples</code> folder in the javascript directory.  It will
+    also show how to set up <code>Vue</code>.
   </p>
 </section>
 
-<section>
-  <h4 id="single-page-scripts">
-    2.1 Single Page Scripts
+<section id="example-component">
+  <h4 id="javascript-vue">
+    2.1 Vue Examples
     <a href="#welcome"><i class="fa fa-angle-up"></i></a>
   </h4>
 
   <p>
-
+    This shows a working example of vue.  More details can be found at <a href="https://vuejs.org/guide/">https://vuejs.org/guide/</a>.
   </p>
-</section>
-
-<section>
-  <h4 id="javascript-components">
-    2.2 Reusable Components
-    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
-  </h4>
-
   <p>
+    <h5>Data</h5>
+    <div>message: {{ message }}</div>
+    <div>selected: {{ selected }}</div>
+    <div>list: {{ list }}</div>
 
+    <h5>Conditional</h5>
+    <div v-if="selected">This only shows if selected == true</div>
+
+    <h5>Loops</h5>
+    <ol>
+      <li v-for="item in list">
+        {{ item.text }}
+      </li>
+    </ol>
+
+    <h5>Button call function</h5>
+    <div>reverseMessage on click: {{ message }}</div>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+
+    <h5>Checkbox</h5>
+    <div>selected: {{ selected }}</div>
+    <input type="checkbox" v-model="selected">
+
+
+    <h5>Input from text</h5>
+    <div>Message: {{ message }}</div>
+    <input v-model="message">
+  </p>
+
+  <h5>Example of a template for a component</h5>
+  <p>
+    Notice the template being rendered below.  More information on components can be found on the <a href="https://vuejs.org/guide/components.html">https://vuejs.org/guide/components.html</a> website.
+
+    <div is="additional-component" :dyn-var="message" msg="Hey there"></div>
   </p>
 </section>
 
-<section>
-  <h1>Columns</h1>
-
-  <div class="columns">
-    <div>
-      Bacon ipsum dolor amet pancetta capicola porchetta pig, ribeye t-bone pork belly. Boudin kevin pig andouille. Flank boudin ribeye chuck venison picanha meatball hamburger kielbasa ball tip beef beef ribs turducken fatback. Corned beef swine meatloaf, porchetta shankle strip steak t-bone fatback chicken ribeye landjaeger biltong ground round. Spare ribs pig leberkas ham, turducken kielbasa bacon frankfurter jowl chicken.
-    </div>
-    <div>
-      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter. Ham meatloaf corned beef, shank pastrami tail venison kevin. Turducken ground round pork chop, pig meatloaf drumstick kevin doner t-bone beef short loin cow pork loin venison alcatra.
-    </div>
-    <div>
-      Short loin bacon leberkas, corned beef porchetta shoulder bresaola landjaeger. Fatback brisket tail rump tenderloin hamburger meatball ham shoulder strip steak spare ribs short ribs alcatra salami short loin. Andouille ham ball tip shank, porchetta ham hock sirloin kielbasa tongue doner. Prosciutto beef ribs sausage, andouille shankle shoulder tongue t-bone swine chuck pork belly kevin doner pork spare ribs. Ribeye spare ribs frankfurter pastrami tri-tip strip steak sirloin ground round.
-    </div>
-  </div>
-</section>
-
-<section>
-  <h1>Cards</h1>
-
-  <div class="cards">
-    <div>
-      Bacon ipsum dolor amet pancetta capicola porchetta pig, ribeye t-bone pork belly. Boudin kevin pig andouille.
-    </div>
-    <div>
-      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye.
-    </div>
-    <div>
-      Short loin bacon leberkas, corned beef porchetta shoulder bresaola landjaeger. Fatback brisket tail rump tenderloin hamburger meatball ham shoulder strip steak spare ribs short ribs alcatra salami short loin. Andouille ham ball tip shank, porchetta ham hock sirloin kielbasa tongue doner.
-    </div>
-    <div>
-      Turducken sirloin biltong, pork belly leberkas pork chop meatloaf spare ribs bresaola. T-bone ham hock short ribs jowl. T-bone pork loin meatball, ball tip filet mignon pork chop tail pork belly prosciutto cow ribeye. Capicola turducken spare ribs, rump picanha corned beef frankfurter.
-    </div>
-  </div>
-</section>
-
-<section>
-  <h1>Center Children</h1>
-
-  <div class="center-children">
-    <h1>Hello World!</h1>
-    <p>
-      Bacon ipsum dolor amet pancetta capicola porchetta pig
-    </p>
-  </div>
-</section>
+<%= render "pages/templates/example_component" %>
