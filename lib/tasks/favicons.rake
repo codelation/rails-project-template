@@ -4,6 +4,10 @@ namespace :favicons do
     ico_sizes = %w(16 32)
     apple_sizes = %w(57 60 72 76 114 120 129 144 152)
     apple_precomposed_sizes = %w(129 152)
+
+    small_break = 50
+    large_break = 150
+
     ms_tile_sizes = %w(144)
 
     favico_dir = "favicons"
@@ -27,24 +31,47 @@ namespace :favicons do
 
     if File.file?("#{file_favico_dir}/template.png")
       print "Converting template image to favicons..."
+      template_name = "#{file_favico_dir}/template.png"
+      template_small_name = "#{file_favico_dir}/template-small.png"
+      template_large_name = "#{file_favico_dir}/template-large.png"
+
+      template_small_name = template_name unless File.file?(template_small_name)
+      template_large_name = template_name unless File.file?(template_large_name)
+
       ico_sizes.each do |size|
-        (`convert #{file_favico_dir}/template.png -resize #{size}x#{size} #{file_favico_dir}/favicon-#{size}x#{size}.ico`)
+        ico_template = template_name
+        ico_template = template_small_name if size.to_i <= small_break
+        ico_template = template_small_name if size.to_i >= large_break
+        (`convert #{ico_template} -resize #{size}x#{size} #{file_favico_dir}/favicon-#{size}x#{size}.ico`)
       end
 
       apple_sizes.each do |size|
-        (`convert #{file_favico_dir}/template.png -resize #{size}x#{size} #{file_favico_dir}/apple-touch-icon-#{size}x#{size}.png`)
+        ico_template = template_name
+        ico_template = template_small_name if size.to_i <= small_break
+        ico_template = template_small_name if size.to_i >= large_break
+        (`convert #{ico_template} -resize #{size}x#{size} #{file_favico_dir}/apple-touch-icon-#{size}x#{size}.png`)
       end
 
       apple_precomposed_sizes.each do |size|
-        (`convert #{file_favico_dir}/template.png -resize #{size}x#{size} #{file_favico_dir}/apple-touch-icon-precomposed-#{size}x#{size}.png`)
+        ico_template = template_name
+        ico_template = template_small_name if size.to_i <= small_break
+        ico_template = template_small_name if size.to_i >= large_break
+        (`convert #{ico_template} -resize #{size}x#{size} #{file_favico_dir}/apple-touch-icon-precomposed-#{size}x#{size}.png`)
       end
 
       ms_tile_sizes.each do |size|
-        (`convert #{file_favico_dir}/template.png -resize #{size}x#{size} #{file_favico_dir}/mstile-#{size}x#{size}.png`)
+        ico_template = template_name
+        ico_template = template_small_name if size.to_i <= small_break
+        ico_template = template_small_name if size.to_i >= large_break
+        (`convert #{ico_template} -resize #{size}x#{size} #{file_favico_dir}/mstile-#{size}x#{size}.png`)
       end
 
-      (`convert #{file_favico_dir}/template.png -resize 152x152 #{file_favico_dir}/apple-touch-icon.png`)
-      (`convert #{file_favico_dir}/template.png -resize 152x152 #{file_favico_dir}/apple-touch-icon-precomposed.png`)
+
+      ico_template = template_name
+      ico_template = template_small_name if 152 <= small_break
+      ico_template = template_small_name if 152 >= large_break
+      (`convert #{ico_template} -resize 152x152 #{file_favico_dir}/apple-touch-icon.png`)
+      (`convert #{ico_template} -resize 152x152 #{file_favico_dir}/apple-touch-icon-precomposed.png`)
     else
       print "Creating favicons from application..."
       favico_letter = Rails.application.class.parent_name.first
