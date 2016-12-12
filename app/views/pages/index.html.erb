@@ -32,6 +32,7 @@
           <ul>
             <li><a href="#layout-application-layout">2.1 Application Layout</a></li>
             <li><a href="#layout-multiple-layouts">2.2 Multiple Layouts</a></li>
+            <li><a href="#layout-favicons">2.3 Favicons</a></li>
           </ul>
         </li>
         <li>
@@ -409,6 +410,27 @@ app/assets/stylesheets/backend/layout/header.scss
     should be included for the entire site. The <code>app/views/layouts/backend.html.erb</code>
     file should load the same partials from <code>app/views/layouts/shared/</code>.
   </p>
+</section>
+
+<section>
+  <h4 id="layout-favicons">
+    2.3 Favicons
+    <a href="#welcome"><i class="fa fa-angle-up"></i></a>
+  </h4>
+
+  <p>
+    To make favicons for your app, run the rake task `rake favicons:build` and it will
+    build the icons for multiple platforms and in many sizes and put them in `images/favicons`.  It will also create
+    a layouts template that you can use to include your icons. It creates Icons in 2 ways:
+
+    <ol>
+      <li>It will use the first letter of the application and attempt to get the `$primary-color` or `$favicon-color` from
+        your `application/variables.scss` file.
+      </li>
+      <li>If you provide a template file called `template.png`, it will use this to generate the rest of the icons.</li>
+    </ol>
+  </p>
+
 </section>
 
 <section>
