@@ -1,5 +1,6 @@
 require File.expand_path("../boot", __FILE__)
 require "rails"
+require "rails/test_unit/railtie"
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
@@ -18,7 +19,7 @@ module RailsProjectTemplate
       generate.request_specs false
       generate.routing_specs false
       generate.stylesheets false
-      generate.test_framework :rspec
+      generate.test_framework :minitest
       generate.view_specs false
     end
     config.i18n.enforce_available_locales = true

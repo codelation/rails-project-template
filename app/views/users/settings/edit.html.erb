@@ -1,0 +1,32 @@
+<%= form_for @user, url: user_settings_path do |f| %>
+  <%= form_error_message(f.object) %>
+  <div>
+    <%= f.label :email %>
+    <%= form_input_errors(f.object, :email) %>
+    <%= f.text_field :email %>
+  </div>
+
+  <h4>Change Password</h4>
+
+  <div>
+    <%= f.label :current_password %>
+    <%= form_input_errors(f.object, :current_password) %>
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= form_input_errors(f.object, :password) %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= form_input_errors(f.object, :password_confirmation) %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div>
+    <%= f.submit "Update Account" %>
+  </div>
+<% end %>
