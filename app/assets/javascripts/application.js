@@ -1,6 +1,2 @@
-//= require jquery
-//= require jquery_ujs
-//= require codelation
-//= require vue
-//= require turbolinks
+//= require codelation_ui
 //= require_tree ./application

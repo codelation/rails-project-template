@@ -17,6 +17,15 @@ GIT
       sass-rails
       sprockets (< 4)
 
+GIT
+  remote: git://github.com/codelation/codelation_ui.git
+  revision: a4ebd50dc6f9ffcace48f577b7a853a91fc8439b
+  specs:
+    codelation_ui (1.0.41)
+      jquery-rails
+      rails (>= 4.0)
+      turbolinks
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -419,7 +428,7 @@ GEM
       activesupport (= 4.2.6)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (11.3.0)
+    rake (12.0.0)
     ransack (1.7.0)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
@@ -499,8 +508,8 @@ DEPENDENCIES
   bundler-audit
   byebug
   capybara
-  codelation_assets
   codelation_pages
+  codelation_ui!
   connection_pool
   dalli
   database_cleaner
@@ -513,7 +522,6 @@ DEPENDENCIES
   guard-livereload
   http_logger
   jbuilder
-  jquery-rails
   local_time
   minitest-reporters
   paperclip
@@ -536,7 +544,6 @@ DEPENDENCIES
   terminal-notifier-guard
   timecop
   title
-  turbolinks
   uglifier
   web-console
   webmock
@@ -545,4 +552,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.1
+   1.14.6

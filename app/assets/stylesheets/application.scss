@@ -1,3 +1,4 @@
-@import "codelation";
+@import "codelation_ui/colors"; // Import the Color variables and mixins first
 @import "application/variables";
+@import "codelation_ui";
 @import "application/**/*";
