@@ -19,9 +19,9 @@ GIT
 
 GIT
   remote: git://github.com/codelation/codelation_ui.git
-  revision: 55e20024f2c84df67b5a34c342a7933e8e3f2ce8
+  revision: e190e87b3bda9434da7d5b0280268e7a58dd353a
   specs:
-    codelation_ui (1.0.48)
+    codelation_ui (1.0.49)
       jquery-rails
       rails (>= 4.0)
       turbolinks
