@@ -3,10 +3,10 @@ source "http://rubygems.org"
 ruby "2.3.1"
 gem "rails", "4.2.6"
 
+# Several Gems are included by the 'codelation_ui' gem
+
 gem "activeadmin", github: "activeadmin"
 gem "active_admin_pro"
-gem "autoprefixer-rails"
-gem "awesome_print"
 gem "codelation_ui", github: "codelation/codelation_ui"
 gem "codelation_pages"
 gem "delayed_job_active_record"
@@ -19,9 +19,6 @@ gem "paperclip"
 gem "pg"
 gem "premailer-rails"
 gem "rollbar"
-gem "sass-rails"
-gem "title"
-gem "uglifier"
 
 group :development do
   gem "foreman"

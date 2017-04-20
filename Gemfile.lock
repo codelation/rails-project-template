@@ -19,12 +19,17 @@ GIT
 
 GIT
   remote: git://github.com/codelation/codelation_ui.git
-  revision: e190e87b3bda9434da7d5b0280268e7a58dd353a
+  revision: 0ecb1916787701eb35fc25445638aa579ce36c84
   specs:
-    codelation_ui (1.0.49)
+    codelation_ui (1.0.57)
+      autoprefixer-rails (~> 6.7)
+      awesome_print
       jquery-rails
       rails (>= 4.0)
-      turbolinks
+      sass-rails (~> 5.0)
+      title
+      turbolinks (~> 2.5)
+      uglifier (~> 2.7)
 
 GEM
   remote: http://rubygems.org/
@@ -80,7 +85,7 @@ GEM
     arel (6.0.4)
     autoprefixer-rails (6.7.7.2)
       execjs
-    awesome_print (1.6.1)
+    awesome_print (1.7.0)
     bcrypt (3.1.11)
     bourbon (4.2.6)
       sass (~> 3.4)
@@ -284,8 +289,8 @@ GEM
     formtastic (3.1.4)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -470,7 +475,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.7)
     timecop (0.8.1)
-    title (0.0.5)
+    title (0.0.7)
       i18n
       rails (>= 3.1)
     trollop (2.1.2)
@@ -478,8 +483,9 @@ GEM
       coffee-rails
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.0.0)
-      execjs (>= 0.3.0, < 3)
+    uglifier (2.7.2)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (3.1.1)
@@ -503,8 +509,6 @@ PLATFORMS
 DEPENDENCIES
   active_admin_pro
   activeadmin!
-  autoprefixer-rails
-  awesome_print
   bundler-audit
   byebug
   capybara
@@ -539,12 +543,9 @@ DEPENDENCIES
   rails_12factor
   rb-fsevent
   rollbar
-  sass-rails
   spring
   terminal-notifier-guard
   timecop
-  title
-  uglifier
   web-console
   webmock
 
