@@ -19,6 +19,7 @@ gem "paperclip"
 gem "pg"
 gem "premailer-rails"
 gem "rollbar"
+gem "title"
 
 group :development do
   gem "foreman"
