@@ -546,6 +546,7 @@ DEPENDENCIES
   spring
   terminal-notifier-guard
   timecop
+  title
   web-console
   webmock
 
