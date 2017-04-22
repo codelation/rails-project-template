@@ -5,10 +5,10 @@
 
     // Displays all available UI options in the warnings
     App.vue.config.main.showInterfaces = true;
-    
+
     // Sets what the default root vue component should attach to
-    App.vue.config.main.rootComponentNode = 'body';
-    
+    App.vue.config.main.rootComponentNode = 'main';
+
     // Interfaces included into every vue component
     App.vue.config.main.includedInterfaces = [
       App.vue.interfaces.contentFormatters,

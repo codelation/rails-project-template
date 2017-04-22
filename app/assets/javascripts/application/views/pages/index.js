@@ -5,14 +5,14 @@
 
   App.register('pages.index').enter(function() {
     App.vue.root = new Vue({
-      el: '#v-page',
+      el: App.vue.config.main.rootComponentNode,
       data: function() {
         return {
-          
+
         }
       },
       methods: {
-        
+
       }
     });
   }).exit(function() {

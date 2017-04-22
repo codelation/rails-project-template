@@ -1,6 +1,6 @@
 # Views
 
-Define per pagejavascript here.  Folder structure is
+Define per page javascript here.  Folder structure is
 
 ```
 controller ->
@@ -9,6 +9,7 @@ controller ->
   new.js
   edit.js
   custom.js
+  etc...
 ```
 
 ```javascript
