@@ -6,7 +6,7 @@ Define functions/methods/workflows etc here to be pulled into your vue component
 (function() {
   "use strict";
 
-  App.vue.interfaces.printer = {
+  App.ui.interfaces.printer = {
     methods: {
       printer: function(msg) {
         console.log(msg);
@@ -23,8 +23,8 @@ And use it like this
   "use strict";
 
   App.register('controller.action').enter(function() {
-    App.vue.root = new Vue({
-      mixins: [App.vue.interfaces.printer],
+    App.ui.root = new Vue({
+      mixins: [App.ui.interfaces.printer],
       el: '#example-component',
       methods: {
         callPrint: function(){

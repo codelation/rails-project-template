@@ -18,8 +18,8 @@ controller ->
 
   // Define javascript to run when on the controller and action page
   App.register('controller_name.action_name').enter(function() {
-    App.vue.root = new Vue({
-      mixins: [App.vue.interfaces.printer],
+    App.ui.root = new Vue({
+      mixins: [App.ui.interfaces.printer],
       el: '#example-component',
       methods: {
         callPrint: function(){
@@ -39,8 +39,8 @@ Or for all actions in the controller
 
   // Define javascript to run when on the controller pages
   App.register('controller_name').enter(function() {
-    App.vue.root = new Vue({
-      mixins: [App.vue.interfaces.printer],
+    App.ui.root = new Vue({
+      mixins: [App.ui.interfaces.printer],
       el: '#example-component',
       methods: {
         callPrint: function(){

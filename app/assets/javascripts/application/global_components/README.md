@@ -30,7 +30,6 @@ Here is the general way how to do that
         }
       }
     });
-
   });
 })();
 ```

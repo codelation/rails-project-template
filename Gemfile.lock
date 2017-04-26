@@ -19,15 +19,14 @@ GIT
 
 GIT
   remote: git://github.com/codelation/codelation_ui.git
-  revision: 0ecb1916787701eb35fc25445638aa579ce36c84
+  revision: a80b1aea5fcef82ba10858d1cffb23292452451d
   specs:
-    codelation_ui (1.0.57)
+    codelation_ui (1.1.6)
       autoprefixer-rails (~> 6.7)
       awesome_print
       jquery-rails
       rails (>= 4.0)
       sass-rails (~> 5.0)
-      title
       turbolinks (~> 2.5)
       uglifier (~> 2.7)
 

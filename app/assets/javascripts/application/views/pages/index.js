@@ -4,8 +4,8 @@
   "use strict"
 
   App.register('pages.index').enter(function() {
-    App.vue.root = new Vue({
-      el: App.vue.config.main.rootComponentNode,
+    App.ui.root = new Vue({
+      el: App.ui.config.main.rootComponentNode,
       data: function() {
         return {
 

@@ -19,7 +19,7 @@ Here is the general way how to do that.
                       </span>\
                     </div>';
 
-    App.vue.components.vueInfo = Vue.extend({
+    App.ui.components.vueInfo = Vue.extend({
       template: template,
       props: {
         'size': {
@@ -35,7 +35,7 @@ Here is the general way how to do that.
 ```
 
 
-This will expose the component in the **App.vue.components.vueInfo** object.
+This will expose the component in the **App.ui.components.vueInfo** object.
 Use it like this in your other Vue components
 
 ```javascript
@@ -43,14 +43,12 @@ Use it like this in your other Vue components
   "use strict";
 
   App.register('component').enter(function() {
-    App.vue.root = new Vue({
+    App.ui.root = new Vue({
       el: '#page-name',
       components: {
-        'vue-info': App.vue.components.vueInfo
+        'vue-info': App.ui.components.vueInfo
       }
     });
-  }).exit(function(){
-    // Notice, there is no need to un allocate App.vue.root as this is done atomatically
   });
 })();
 ```

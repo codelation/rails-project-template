@@ -4,30 +4,30 @@
   App.register('config').enter(function() {
 
     // Displays all available UI options in the warnings
-    App.vue.config.main.showInterfaces = true;
+    App.ui.config.main.showInterfaces = true;
 
     // Sets what the default root vue component should attach to
-    App.vue.config.main.rootComponentNode = 'main';
+    App.ui.config.main.rootComponentNode = 'main';
 
     // Interfaces included into every vue component
-    App.vue.config.main.includedInterfaces = [
-      App.vue.interfaces.contentFormatters,
-      App.vue.interfaces.string,
-      App.vue.interfaces.number,
-      App.vue.interfaces.array,
-      App.vue.interfaces.date,
-      App.vue.interfaces.custom || {}
+    App.ui.config.main.includedInterfaces = [
+      App.ui.interfaces.std.format,
+      App.ui.interfaces.std.string,
+      App.ui.interfaces.std.number,
+      App.ui.interfaces.std.array,
+      App.ui.interfaces.std.date,
+      App.ui.interfaces.custom || {}
     ];
 
     // Components registered globably
-    App.vue.globalComponents['vue-info'] = App.vue.components.vueInfo;
-    App.vue.globalComponents['vue-transition'] = App.vue.components.vueTransition;
-    App.vue.globalComponents['vue-checkmark'] = App.vue.components.vueCheckmark;
-    App.vue.globalComponents['vue-input'] = App.vue.components.vueInput;
-    App.vue.globalComponents['vue-code'] = App.vue.components.vueCode;
-    App.vue.globalComponents['vue-fail'] = App.vue.components.vueFail;
-    App.vue.globalComponents['vue-radial-progress-bar'] = App.vue.components.vueRadialProgressBar;
-    App.vue.globalComponents['vue-slider'] = App.vue.components.vueSlider;
-    App.vue.globalComponents['vue-spinner'] = App.vue.components.vueSpinner;
+    App.ui.globalComponents['vue-info'] = App.ui.components.std.info;
+    App.ui.globalComponents['vue-transition'] = App.ui.components.extended.transition;
+    App.ui.globalComponents['vue-checkmark'] = App.ui.components.extended.checkmark;
+    App.ui.globalComponents['vue-input'] = App.ui.components.forms.input;
+    App.ui.globalComponents['vue-code'] = App.ui.components.extended.code;
+    App.ui.globalComponents['vue-fail'] = App.ui.components.extended.fail;
+    App.ui.globalComponents['vue-radial-progress-bar'] = App.ui.components.extended.radialProgressBar;
+    App.ui.globalComponents['vue-slider'] = App.ui.components.extended.slider;
+    App.ui.globalComponents['vue-spinner'] = App.ui.components.extended.spinner;
   });
 })();
