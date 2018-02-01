@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 ruby "2.3.1"
-gem "rails", "4.2.6"
+gem "rails", "4.2.7.1"
 
 # Several Gems are included by the 'codelation_ui' gem
 
@@ -15,7 +15,7 @@ gem "devise-async"
 gem "fog"
 gem "jbuilder"
 gem "local_time"
-gem "paperclip"
+gem "paperclip", "~> 5.2.1"
 gem "pg"
 gem "premailer-rails"
 gem "rollbar"
